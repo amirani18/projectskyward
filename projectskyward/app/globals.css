@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f0f4fc; /* Light Blue */
+  --foreground: #1a2a5b; /* Dark Blue */
+  --dark-blue: #1a2a5b;
+  --light-blue: #dce8f6;
+  --lighter-blue: #eaf3fc;
+  --white: #ffffff;
+  --blue: #4a90e2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a2a5b;
+    --foreground: #eaf3fc;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.bg-lighter-blue {
+  background-color: var(--lighter-blue);
+}
+
+.text-dark-blue {
+  color: var(--dark-blue);
+}
+
+.text-light-blue {
+  color: var(--light-blue);
+}
+
+.text-lighter-blue {
+  color: var(--lighter-blue);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.border-blue {
+  border-color: var(--blue);
+}
