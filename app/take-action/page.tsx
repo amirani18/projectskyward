@@ -76,11 +76,13 @@ export default function TakeAction(): JSX.Element {
         <section className="mt-12 text-center">
           <p className="text-lg mb-4">Together, we can make a difference!</p>
           <div className="w-full h-64 bg-gradient-to-b from-light-blue to-white flex items-center justify-center">
-            <img
-              src="/students-studying.png"
-              alt="Students Studying"
-              className="h-full object-contain"
-            />
+          <Image
+            src="/students-studying.png"
+            alt="Students Studying"
+            width={800}
+            height={600}
+            className="h-full object-contain"
+          />
           </div>
         </section>
       </main>
