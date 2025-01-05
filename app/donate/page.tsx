@@ -1,32 +1,32 @@
 "use client";
 
 import React from "react";
-import Image from 'next/image';
+import Image from "next/image";
 import NavLinks from "../components/nav-links";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 
-const stripePromise = loadStripe("pk_test_51Qdod3P2Xdtz1LiDg8jpK46RaIydgy5TjMxrJGldKZhMvNzCuG3Fpoz8MnBmzyxWjXwqEvc6krCRMATZQfyFL8c300Fx1KGS9K"); // Replace with your Stripe publishable key
+// Use the environment variable
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 
 export default function Donate() {
   return (
     <div className="min-h-screen bg-light-blue text-dark-blue font-sans flex flex-col">
       <header className="bg-dark-blue text-white p-6">
         {/* Header Section */}
-          <nav className="flex justify-between items-center">
-            <h1 className="text-4xl font-bold">Project Skyward</h1>
-            <Image
-              src="/logo_projectskyward.png"
-              alt="Project Skyward Logo"
-              width={50}
-              height={50}
-            />
-            <NavLinks />
-          </nav>
+        <nav className="flex justify-between items-center">
+          <h1 className="text-4xl font-bold">Project Skyward</h1>
+          <Image
+            src="/logo_projectskyward.png"
+            alt="Project Skyward Logo"
+            width={50}
+            height={50}
+          />
+          <NavLinks />
+        </nav>
       </header>
 
-      
       <h1 className="text-4xl font-bold text-center">Donate</h1>
       <main className="flex-grow max-w-4xl mx-auto p-8 space-y-8">
         <section className="text-center">

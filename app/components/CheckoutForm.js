@@ -19,16 +19,35 @@ export default function CheckoutForm() {
       return;
     }
 
-    const { error, paymentIntent } = await stripe.confirmCardPayment("sk_test_51Qdod3P2Xdtz1LiDbIA8RFk6YM24buRG1DqZvpRWdcovwMyDe4TZ8z9H8fMsqtMRrBCOVweYmCJtgzxhUSxJ7Vlv00DqtHFETb", {
-      payment_method: {
-        card: elements.getElement(CardElement),
-      },
-    });
+    try {
+      // Request client_secret from API
+      const res = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 5000 }), // Amount in cents (e.g., $50.00)
+      });
 
-    if (error) {
+      const { clientSecret, error } = await res.json();
+      if (error) {
+        throw new Error(error);
+      }
+
+      // Confirm the payment
+      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+
+      if (stripeError) {
+        throw new Error(stripeError.message);
+      }
+
+      if (paymentIntent.status === "succeeded") {
+        setMessage("Payment successful! Thank you for your donation.");
+      }
+    } catch (error) {
       setMessage(error.message);
-    } else if (paymentIntent.status === "succeeded") {
-      setMessage("Payment successful! Thank you for your donation.");
     }
 
     setLoading(false);
