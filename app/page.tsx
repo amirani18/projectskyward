@@ -8,9 +8,9 @@ export default function Home() {
       {/* Header Section */}
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold">Project Skyward</h1>
+          {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
           <Image
-            src="/logo_projectskyward.png"
+            src="/logo.jpeg"
             alt="Project Skyward Logo"
             width={50}
             height={50}
@@ -22,7 +22,7 @@ export default function Home() {
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-            src="/logo_projectskyward.png"
+            src="/logo.jpeg"
             alt="Project Skyward Logo"
             width={100}
             height={100}
@@ -120,8 +120,8 @@ export default function Home() {
 
       {/* Footer Section */}
       <footer className="bg-dark-blue text-white p-6 text-center">
-        <p>Contact us: +123-456-7890 | 123 Anywhere St., Any City, ST 12345</p>
-        <p>Website: www.reallygreatsite.com</p>
+        <p>Contact us: +406-880-3340 | 123 Anywhere St., Any City, ST 12345</p>
+        <p>Website: www.projectskyward.org</p>
       </footer>
     </div>
   );
