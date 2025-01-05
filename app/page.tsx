@@ -1,6 +1,8 @@
 import Image from "next/image";
 import NavLinks from "./components/nav-links";
 
+"use client";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-light-blue text-dark-blue">
