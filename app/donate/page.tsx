@@ -20,8 +20,8 @@ export default function Donate() {
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
-            width={100}
-            height={100}
+            width={300}
+            height={300}
             className="mr-4"
           />
           <NavLinks />
