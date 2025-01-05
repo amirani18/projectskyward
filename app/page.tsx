@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-light-blue text-dark-blue">
       {/* Header Section */}
-      <header className="bg-dark-blue text-white">
-        <nav className="navbar">
+      <header className="bg-dark-blue text-white p-6">
+        <nav className="flex justify-between items-center">
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
             width={300}
             height={300}
-            className="header-logo"
+            className="mr-4"
           />
           <NavLinks />
         </nav>
@@ -32,7 +32,8 @@ export default function Home() {
         <p className="text-lg text-dark-blue">
           &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
           providing culturally responsive education, bilingual programs, and
-          community-driven support.&quot;
+          community-driven support. We foster belonging, resilience, and success as
+          they navigate life in America.&quot;
         </p>
       </section>
 
