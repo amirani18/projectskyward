@@ -30,10 +30,9 @@ export default function Home() {
         />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
-          "Project Skyward empowers newly-arrived refugee youth in Indianapolis by
+          &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
           providing culturally responsive education, bilingual programs, and
-          community-driven support. We foster belonging, resilience, and success as
-          they navigate life in America."
+          community-driven support.&quot;
         </p>
       </section>
 
@@ -79,8 +78,8 @@ export default function Home() {
       <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
-          "Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now." – A Refugee Youth
+          &quot;Project Skyward gave me hope and the tools to succeed in school and life.
+          I feel like I belong now." – A Refugee Youth&quot;
         </blockquote>
       </section>
 
