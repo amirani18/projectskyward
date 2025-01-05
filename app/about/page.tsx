@@ -9,7 +9,7 @@ export default function about() {
           <nav className="flex justify-between items-center">
             {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Project Skyward Logo"
               width={50}
               height={50}

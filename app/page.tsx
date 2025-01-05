@@ -10,7 +10,7 @@ export default function Home() {
         <nav className="flex justify-between items-center">
           {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
           <Image
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="Project Skyward Logo"
             width={50}
             height={50}
@@ -22,7 +22,7 @@ export default function Home() {
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-            src="/logo.jpeg"
+            src="/no_words_logo.png"
             alt="Project Skyward Logo"
             width={100}
             height={100}
