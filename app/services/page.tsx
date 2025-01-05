@@ -11,8 +11,7 @@ export default function services() {
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
-            width={50}
-            height={50}
+            layout="intrinsic"
           />
           <NavLinks />
         </nav>

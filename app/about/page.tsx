@@ -6,16 +6,15 @@ export default function about() {
     <div className="min-h-screen bg-light-blue text-dark-blue font-sans flex flex-col">
       <header className="bg-dark-blue text-white p-6">
       {/* Header Section */}
-          <nav className="flex justify-between items-center">
+            <nav className="flex justify-between items-center">
             {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
             <Image
               src="/logo.png"
               alt="Project Skyward Logo"
-              width={50}
-              height={50}
+              layout="intrinsic"
             />
             <NavLinks />
-          </nav>
+            </nav>
       </header>
 
       <main className="flex-grow max-w-4xl mx-auto p-8 space-y-8">
