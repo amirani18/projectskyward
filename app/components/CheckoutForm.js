@@ -19,7 +19,7 @@ export default function CheckoutForm() {
       return;
     }
 
-    const { error, paymentIntent } = await stripe.confirmCardPayment("your-client-secret", {
+    const { error, paymentIntent } = await stripe.confirmCardPayment("sk_test_51Qdod3P2Xdtz1LiDbIA8RFk6YM24buRG1DqZvpRWdcovwMyDe4TZ8z9H8fMsqtMRrBCOVweYmCJtgzxhUSxJ7Vlv00DqtHFETb", {
       payment_method: {
         card: elements.getElement(CardElement),
       },

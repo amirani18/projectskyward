@@ -7,7 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 
-const stripePromise = loadStripe("your-publishable-key-here"); // Replace with your Stripe publishable key
+const stripePromise = loadStripe("pk_test_51Qdod3P2Xdtz1LiDg8jpK46RaIydgy5TjMxrJGldKZhMvNzCuG3Fpoz8MnBmzyxWjXwqEvc6krCRMATZQfyFL8c300Fx1KGS9K"); // Replace with your Stripe publishable key
 
 export default function Donate() {
   return (
