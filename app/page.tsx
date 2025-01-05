@@ -8,11 +8,12 @@ export default function Home() {
       {/* Header Section */}
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
-          {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
-            layout="intrinsic"
+            width={100}
+            height={100}
+            className="mr-4"
           />
           <NavLinks />
         </nav>
@@ -23,8 +24,8 @@ export default function Home() {
         <Image
             src="/no_words_logo.png"
             alt="Project Skyward Logo"
-            width={100}
-            height={100}
+            width={300}
+            height={300}
             className="block mx-auto"
           />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>

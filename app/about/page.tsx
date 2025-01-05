@@ -8,11 +8,13 @@ export default function about() {
       {/* Header Section */}
             <nav className="flex justify-between items-center">
             {/* <h1 className="text-4xl font-bold">Project Skyward</h1> */}
-            <Image
-              src="/logo.png"
-              alt="Project Skyward Logo"
-              layout="intrinsic"
-            />
+          <Image
+            src="/logo.png"
+            alt="Project Skyward Logo"
+            width={100}
+            height={100}
+            className="mr-4"
+          />
             <NavLinks />
             </nav>
       </header>
