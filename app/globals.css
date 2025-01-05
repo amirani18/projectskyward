@@ -15,62 +15,45 @@
   --blue: #4a90e2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a2a5b;
-    --foreground: #eaf3fc;
-  }
-}
-
-/* Apply the new fonts */
+/* Default font styles */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Default font for body */
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Body font */
 }
 
-/* Specific styles for titles */
+/* Titles and headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bunya', Arial, Helvetica, sans-serif; /* Titles use Bunya font */
+  font-family: 'Bunya', sans-serif; /* Bunya font for headings */
 }
 
-/* Background and text colors */
-.bg-dark-blue {
-  background-color: var(--dark-blue);
+/* Utility classes for dynamic header and logo styles */
+.header-logo {
+  max-width: 200px;
+  height: auto;
 }
 
-.bg-light-blue {
-  background-color: var(--light-blue);
+@media (min-width: 768px) {
+  .header-logo {
+    max-width: 300px;
+  }
 }
 
-.bg-lighter-blue {
-  background-color: var(--lighter-blue);
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 
-.text-dark-blue {
-  color: var(--dark-blue);
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
 }
 
-.text-light-blue {
-  color: var(--light-blue);
-}
-
-.text-lighter-blue {
-  color: var(--lighter-blue);
-}
-
-.text-white {
-  color: var(--white);
-}
-
-.text-blue {
-  color: var(--blue);
-}
-
-.bg-blue {
-  background-color: var(--blue);
-}
-
-.border-blue {
-  border-color: var(--blue);
+@media (min-width: 768px) {
+  .nav-links {
+    font-size: 1rem;
+  }
 }

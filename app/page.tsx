@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-light-blue text-dark-blue">
       {/* Header Section */}
-      <header className="bg-dark-blue text-white p-6">
-        <nav className="flex justify-between items-center">
+      <header className="bg-dark-blue text-white">
+        <nav className="navbar">
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
             width={300}
             height={300}
-            className="mr-4"
+            className="header-logo"
           />
           <NavLinks />
         </nav>
@@ -22,18 +22,18 @@ export default function Home() {
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-            src="/no_words_logo.png"
-            alt="Project Skyward Logo"
-            width={300}
-            height={300}
-            className="block mx-auto"
-          />
+          src="/no_words_logo.png"
+          alt="Project Skyward Logo"
+          width={300}
+          height={300}
+          className="block mx-auto"
+        />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
-          &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
+          "Project Skyward empowers newly-arrived refugee youth in Indianapolis by
           providing culturally responsive education, bilingual programs, and
           community-driven support. We foster belonging, resilience, and success as
-          they navigate life in America.&quot;
+          they navigate life in America."
         </p>
       </section>
 
@@ -79,8 +79,8 @@ export default function Home() {
       <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
-          &quot;Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now.&quot; – A Refugee Youth
+          "Project Skyward gave me hope and the tools to succeed in school and life.
+          I feel like I belong now." – A Refugee Youth
         </blockquote>
       </section>
 
