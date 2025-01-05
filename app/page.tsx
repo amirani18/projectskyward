@@ -1,7 +1,6 @@
+"use client";
 import Image from "next/image";
 import NavLinks from "./components/nav-links";
-
-"use client";
 
 export default function Home() {
   return (
