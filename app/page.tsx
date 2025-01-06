@@ -11,8 +11,8 @@ export default function Home() {
           <Image
             src="/logo.png"
             alt="Project Skyward Logo"
-            width={300}
-            height={300}
+            width={100}
+            height={100}
             className="mr-4"
           />
           <NavLinks />
@@ -22,12 +22,12 @@ export default function Home() {
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-          src="/no_words_logo.png"
-          alt="Project Skyward Logo"
-          width={300}
-          height={300}
-          className="block mx-auto"
-        />
+            src="/no_words_logo.png"
+            alt="Project Skyward Logo"
+            width={300}
+            height={300}
+            className="block mx-auto"
+          />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
           &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
@@ -80,7 +80,7 @@ export default function Home() {
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
           &quot;Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now." – A Refugee Youth&quot;
+          I feel like I belong now.&quot; – A Refugee Youth
         </blockquote>
       </section>
 
