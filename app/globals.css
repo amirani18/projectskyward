@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bunya&family=Roboto:wght@300;400;500;700&display=swap');
-
 :root {
   --background: #f0f4fc; /* Light Blue */
   --foreground: #1a2a5b; /* Dark Blue */
@@ -15,45 +12,55 @@
   --blue: #4a90e2;
 }
 
-/* Default font styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a2a5b;
+    --foreground: #eaf3fc;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Body font */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Titles and headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bunya', sans-serif; /* Bunya font for headings */
+.bg-dark-blue {
+  background-color: var(--dark-blue);
 }
 
-/* Utility classes for dynamic header and logo styles */
-.header-logo {
-  max-width: 200px;
-  height: auto;
+.bg-light-blue {
+  background-color: var(--light-blue);
 }
 
-@media (min-width: 768px) {
-  .header-logo {
-    max-width: 300px;
-  }
+.bg-lighter-blue {
+  background-color: var(--lighter-blue);
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+.text-dark-blue {
+  color: var(--dark-blue);
 }
 
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.875rem;
+.text-light-blue {
+  color: var(--light-blue);
 }
 
-@media (min-width: 768px) {
-  .nav-links {
-    font-size: 1rem;
-  }
+.text-lighter-blue {
+  color: var(--lighter-blue);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.border-blue {
+  border-color: var(--blue);
 }
