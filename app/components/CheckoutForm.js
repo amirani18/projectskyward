@@ -14,22 +14,18 @@ export default function CheckoutForm() {
     setLoading(true);
 
     if (!stripe || !elements) {
-      setMessage("Stripe is not loaded yet. Please try again.");
+      setMessage("Stripe is not loaded yet.");
       setLoading(false);
       return;
     }
 
     try {
       // Request client_secret from API
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-payment-intent`, {
+      const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 5000 }), // Amount in cents ($50.00)
+        body: JSON.stringify({ amount: 5000 }), // Amount in cents (e.g., $50.00)
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to create payment intent. Please try again.");
-      }
 
       const { clientSecret, error } = await res.json();
       if (error) {
@@ -48,17 +44,17 @@ export default function CheckoutForm() {
       }
 
       if (paymentIntent.status === "succeeded") {
-        setMessage("Payment successful! Thank you for your generous donation.");
+        setMessage("Payment successful! Thank you for your donation.");
       }
     } catch (error) {
-      setMessage(error.message || "An unexpected error occurred. Please try again.");
+      setMessage(error.message);
     }
 
     setLoading(false);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor="card-element" className="block text-sm font-medium">
           Card Details
@@ -71,8 +67,7 @@ export default function CheckoutForm() {
       <button
         type="submit"
         disabled={!stripe || loading}
-        className="bg-blue text-white px-4 py-2 rounded-lg hover:bg-dark-blue disabled:opacity-50 w-full"
-        aria-label="Submit donation"
+        className="bg-blue text-white px-4 py-2 rounded-lg hover:bg-dark-blue disabled:opacity-50"
       >
         {loading ? "Processing..." : "Donate"}
       </button>
