@@ -79,7 +79,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <h3 className="text-xl font-bold text-blue">Bilingual Education</h3>
-            <p className="text-dark-blue">ESL instruction and bilingual tutoring for academic success.</p>
+            <p className="text-dark-blue">English as a Second Language (ESL) instruction and bilingual tutoring for academic success.</p>
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue">Personalized Support</h3>
