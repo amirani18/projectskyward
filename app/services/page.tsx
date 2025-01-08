@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import NavLinks from "../components/nav-links";
 
-export default function services() {
+export default function Services() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
