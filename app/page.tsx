@@ -118,7 +118,7 @@ export default function Home() {
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
           &quot;Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now." – A Refugee Youth&quot;
+          I feel like I belong now.&quot; – A Refugee Youth &quot;
         </blockquote>
       </section>
 
