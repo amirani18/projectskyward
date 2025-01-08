@@ -1,33 +1,68 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import NavLinks from "./components/nav-links";
 
+
 export default function Home() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+
+  const handleToggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-light-blue text-dark-blue">
+    <div className="min-h-screen flex flex-col font-sans bg-dark-blue text-light-blue">
       {/* Header Section */}
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
-          <Image
-            src="/logo.png"
-            alt="Project Skyward Logo"
-            width={100}
-            height={100}
-            className="mr-4"
-          />
-          <NavLinks />
+          {/* Logo */}
+          <div>
+            <Image
+              src="/logo.png"
+              alt="Project Skyward Logo"
+              width={150}
+              height={150}
+              className="mr-4"
+            />
+          </div>
+
+
+          {/* NavLinks */}
+          <NavLinks isNavOpen={isNavOpen} />
+
+
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-6">
+            <button
+              className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
+              onClick={() => window.location.href = "/donate"}
+            >
+              Donate
+            </button>
+            <button
+              className="text-3xl md:hidden text-white"
+              onClick={handleToggleNav}
+              aria-label="Toggle navigation menu"
+            >
+              {isNavOpen ? "✖" : "☰"}
+            </button>
+          </div>
         </nav>
       </header>
+
 
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-            src="/no_words_logo.png"
-            alt="Project Skyward Logo"
-            width={300}
-            height={300}
-            className="block mx-auto"
-          />
+          src="/no_words_logo.png"
+          alt="Project Skyward Logo"
+          width={100}
+          height={100}
+          className="block mx-auto"
+        />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
           &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
@@ -36,6 +71,7 @@ export default function Home() {
           they navigate life in America.&quot;
         </p>
       </section>
+
 
       {/* How We Help Section */}
       <section className="p-8 bg-white text-center">
@@ -56,6 +92,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Impact Section */}
       <section className="p-8 bg-light-blue text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Impact</h2>
@@ -75,14 +112,16 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Refugee Testimonials Section */}
       <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
           &quot;Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now.&quot; – A Refugee Youth
+          I feel like I belong now." – A Refugee Youth&quot;
         </blockquote>
       </section>
+
 
       {/* Take Action Section */}
       <section className="p-8 bg-light-blue text-center">
@@ -104,6 +143,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Donate Section */}
       <section id="donate" className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Donate</h2>
@@ -117,6 +157,7 @@ export default function Home() {
           Donate Now
         </a>
       </section>
+
 
       {/* Footer Section */}
       <footer className="bg-dark-blue text-white p-6 text-center">
