@@ -1,34 +1,31 @@
-// import {
-//     UserGroupIcon,
-//     HomeIcon,
-//     DocumentDuplicateIcon,
-// } from '@heroicons/react';
-import Link from 'next/link';
+import Link from "next/link";
+
 
 const links = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Our Services', href: '/services' },
-    { name: 'Take Action', href: '/take-action' },
-    { name: 'Donate', href: '/donate' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Our Services", href: "/services" },
+  { name: "Take Action", href: "/take-action" },
 ];
 
-export default function NavLinks() {
-    return (
-        <>
-            {links.map((link) => {
-                // const LinkIcon = link.icon;
-                return (
-                    <Link
-                        key={link.name}
-                        href={link.href}
-                        className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-black-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
-                    >
-                        {/* <LinkIcon className="w-6" /> */}
-                        <p className="hidden md:block">{link.name}</p>
-                    </Link>
-                );
-            })}
-        </>
-    );
+
+export default function NavLinks({ isNavOpen }: { isNavOpen: boolean }) {
+  return (
+    <nav
+      className={`fixed md:static top-0 left-0 w-full md:w-auto bg-dark-blue md:bg-transparent text-light-blue
+      flex flex-col md:flex-row items-center gap-4 md:gap-6 transition-all duration-500
+      ${isNavOpen ? "h-screen" : "h-0"} md:h-auto overflow-hidden`}
+    >
+      {links.map((link) => (
+        <Link
+          key={link.name}
+          href={link.href}
+          aria-label={`Navigate to ${link.name} page`}
+          className="text-sm font-medium font-roboto hover:text-blue md:text-base"
+        >
+          {link.name}
+        </Link>
+      ))}
+    </nav>
+  );
 }
