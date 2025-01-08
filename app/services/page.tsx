@@ -16,14 +16,14 @@ export default function Services() {
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
           {/* Logo */}
-          <div>
-            <Image
-              src="/logo.png"
-              alt="Project Skyward Logo"
-              width={150}
-              height={150}
-              className="mr-4"
-            />
+          <div onClick={() => window.location.href = "/"} className="cursor-pointer">
+          <Image
+            src="/logo.png"
+            alt="Project Skyward Logo"
+            width={150}
+            height={150}
+            className="mr-4"
+          />
           </div>
 
 

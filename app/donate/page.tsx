@@ -24,14 +24,14 @@ export default function Donate() {
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
           {/* Logo */}
-          <div>
-            <Image
-              src="/logo.png"
-              alt="Project Skyward Logo"
-              width={150}
-              height={150}
-              className="mr-4"
-            />
+          <div onClick={() => window.location.href = "/"} className="cursor-pointer">
+          <Image
+            src="/logo.png"
+            alt="Project Skyward Logo"
+            width={150}
+            height={150}
+            className="mr-4"
+          />
           </div>
 
 
@@ -58,8 +58,8 @@ export default function Donate() {
         </nav>
       </header>
 
-      <h1 className="text-4xl font-bold text-center">Donate</h1>
       <main className="flex-grow max-w-4xl mx-auto p-8 space-y-8">
+      <h1 className="text-4xl font-bold text-center">Donate</h1>
         <section className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Support Our Mission</h2>
           <p className="text-lg">

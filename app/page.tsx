@@ -15,8 +15,8 @@ export default function Home() {
       {/* Header Section */}
       <header className="bg-dark-blue text-white p-6">
         <nav className="flex justify-between items-center">
-          {/* Logo */}
-          <div>
+            {/* Logo */}
+            <div onClick={() => window.location.href = "/"} className="cursor-pointer">
             <Image
               src="/logo.png"
               alt="Project Skyward Logo"
@@ -24,7 +24,7 @@ export default function Home() {
               height={150}
               className="mr-4"
             />
-          </div>
+            </div>
 
 
           {/* NavLinks */}
