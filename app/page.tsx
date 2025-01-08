@@ -9,8 +9,7 @@ export default function Home() {
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-  const [isBilingualEducationOpen, setIsBilingualEducationOpen] = useState(false);
-
+  
   return (
     <div className="min-h-screen flex flex-col font-sans bg-dark-blue text-light-blue">
       {/* Header Section */}
