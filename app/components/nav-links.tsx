@@ -13,18 +13,18 @@ export default function NavLinks({ isNavOpen }: { isNavOpen: boolean }) {
   return (
     <nav
       className={`fixed md:static top-0 left-0 w-full md:w-auto bg-dark-blue md:bg-transparent text-light-blue
-      flex flex-col md:flex-row items-center gap-4 md:gap-6 transition-all duration-500
+      flex flex-col md:flex-row items-center gap-24 md:gap-6 transition-all duration-500
       ${isNavOpen ? "h-screen" : "h-0"} md:h-auto overflow-hidden`}
     >
       {links.map((link) => (
-        <Link
-          key={link.name}
-          href={link.href}
-          aria-label={`Navigate to ${link.name} page`}
-          className="text-sm font-medium font-roboto hover:text-blue md:text-base"
-        >
-          {link.name}
-        </Link>
+      <Link
+        key={link.name}
+        href={link.href}
+        aria-label={`Navigate to ${link.name} page`}
+        className="text-sm font-medium font-roboto hover:text-blue md:text-base"
+      >
+        {link.name}
+      </Link>
       ))}
     </nav>
   );

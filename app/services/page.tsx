@@ -67,23 +67,23 @@ export default function Services() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold mb-4">Bilingual Education Program</h3>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4"> Bilingual Education Program</h3>
             <p className="text-lg">
               English as a Second Language (ESL) instruction. Bilingual tutoring and
-              classwork assistance.
+              classwork assistance. Scroll to learn more.
             </p>
             <p className="mt-2 text-sm font-semibold">
               Key Outcomes: Increased academic performance, better classroom
               participation, and improved language skills.
             </p>
-          </div>
+            </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4">Academic Support and Mentorship</h3>
             <p className="text-lg">
               One-on-one tutoring in core subjects. After-school study programs. Pairing
-              students with mentors.
+              students with mentors. 
             </p>
             <p className="mt-2 text-sm font-semibold">
               Key Outcomes: Improved grades, increased retention rates, and strengthened
@@ -115,6 +115,83 @@ export default function Services() {
             </p>
           </div>
         </section>
+
+        <section className="text-center">
+          <h2 className="text-3xl font-semibold mb-4">Deep Dive Into Our Tutoring Services</h2>
+            <p className="text-lg">
+            Our tutoring services at Project Skyward are designed to provide comprehensive support 
+            to refugee youth. We offer personalized ESL instruction, bilingual tutoring, and academic 
+            assistance to help students excel in their studies. Our dedicated tutors work closely with 
+            each student to address their unique needs and challenges, ensuring they receive the guidance 
+            and encouragement necessary to succeed.
+            </p>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4"> English as a Second Language (ESL) instruction. </h3>
+            <p className="text-lg">
+              English as a Second Language (ESL) instruction for academic success.
+              Bilingual tutoring is a form of educational support where a tutor provides instruction in two languages,
+              allowing students to learn and practice academic concepts in both their native language and a second
+              language, typically used to assist English Language Learners (ELLs) by bridging the gap between
+              their native tongue and English proficiency.
+
+
+              Unlike other English teaching programs in the country, we focus teaching youth English Grammar. Easy
+              writing, and fluency in speaking English. Through our social integration program, we provide newly
+              arrived youth cultural and historical awareness of their new home country.
+            </p>
+            <p className="mt-2 text-sm font-semibold">
+              Key Outcomes of ESL Tutoring: Enhanced English proficiency, improved academic performance, and increased confidence in classroom participation.
+            </p>
+            </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4">Math Tutoring</h3>
+            <p className="text-lg">
+              Bilingual math tutoring to help bridge academic gaps.
+              Our bilingual teachers provide most needed educational help in middle school Math, algebra, geometry,
+              Calculus 1 and Calculus 2 to help refugee and immigrant children move forward to their regular class
+              level as many refugee and immigrant children are admitted two years behind their actual class level.
+              For example, a newly arrived 9th grader is placed in 7th grad at any middle or high school in the United
+              States. We provide them with the necessary help to move forward to their actual class level.
+            </p>
+            <p className="mt-2 text-sm font-semibold">
+              Key Outcomes: Enhanced mathematical understanding, improved problem-solving skills, and better performance in math-related subjects.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4">Computer Science Tutoring</h3>
+            <p className="text-lg">
+              Bilingual computer science tutoring to foster technical skills.
+              Our bilingual teachers provide computer science tutoring to refugee and immigrant children, focusing on
+              foundational skills in programming, web development, and computer literacy. This includes teaching coding
+              languages such as Python, JavaScript, and HTML/CSS, as well as essential computer skills like using software
+              applications and understanding basic hardware components. By equipping students with these technical skills,
+              we aim to enhance their educational and career opportunities in the technology sector.
+            </p>
+            <p className="mt-2 text-sm font-semibold">
+              Key Outcomes: Enhanced technical skills, increased interest in STEM fields, and better preparation for technology-related careers.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4">SAT and ACT Preparation for College Admission</h3>
+            <p className="text-lg">
+              Bilingual SAT and ACT preparation for college admission.
+              We provide excellent services for SAT and ACT preparation free of charge as most Refugee/immigrant
+              youth are unaware of the American school system and requirements for college admissions. Our bilingual SAT
+              and ACT preparation program helps bridge this gap by providing comprehensive instruction and practice in
+              test-taking strategies, critical reading, math, and writing skills. This ensures that students are well-prepared
+              to achieve competitive scores and meet college admission requirements.
+            </p>
+            <p className="mt-2 text-sm font-semibold">
+              Key Outcomes: Higher SAT and ACT scores, increased college admission rates, and enhanced test-taking confidence.
+            </p>
+          </div>
+        </section>        
       </main>
 
       <footer className="bg-dark-blue text-white p-6 text-center">
