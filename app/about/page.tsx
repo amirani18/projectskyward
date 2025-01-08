@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import { useState } from 'react';
 import NavLinks from "../components/nav-links";
@@ -7,7 +8,7 @@ export default function about() {
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-  
+
 
   return (
     <div className="min-h-screen bg-light-blue text-dark-blue font-sans flex flex-col">

@@ -6,12 +6,10 @@ import NavLinks from "./components/nav-links";
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
-
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-
+  const [isBilingualEducationOpen, setIsBilingualEducationOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-dark-blue text-light-blue">
@@ -65,8 +63,8 @@ export default function Home() {
         />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
-          &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis by
-          providing culturally responsive education, bilingual programs, and
+          &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis, Bloomington, and Chicago
+          by providing culturally responsive education, bilingual programs, and
           community-driven support. We foster belonging, resilience, and success as
           they navigate life in America.&quot;
         </p>
@@ -77,10 +75,60 @@ export default function Home() {
       <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">How We Help</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="text-xl font-bold text-blue">Bilingual Education</h3>
-            <p className="text-dark-blue">English as a Second Language (ESL) instruction and bilingual tutoring for academic success.</p>
-          </div>
+            <div>
+            <button
+              className="text-xl font-bold text-blue"
+              onClick={() => setIsBilingualEducationOpen(!isBilingualEducationOpen)}
+            >
+              Bilingual Education
+            </button>
+            {isBilingualEducationOpen && (
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <h4 className="text-lg font-semibold text-dark-blue">ESL Tutoring</h4>
+                <p className="text-dark-blue">English as a Second Language (ESL) instruction for academic success. 
+                  Bilingual tutoring is a form of educational support where a tutor provides instruction in two languages, 
+                  allowing students to learn and practice academic concepts in both their native language and a second 
+                  language, typically used to assist English Language Learners (ELLs) by bridging the gap between 
+                  their native tongue and English proficiency.
+
+                  Unlike other English teaching programs in the country, we focus teaching youth English Grammar. Easy 
+                  writing, and fluency in speaking English. Through our social integration program, we provide newly 
+                  arrived youth cultural and historical awareness of their new home country.</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-dark-blue">Math Tutoring</h4>
+                <p className="text-dark-blue">Bilingual math tutoring to help bridge academic gaps.
+                Our bilingual teachers provide most needed educational help in middle school Math, algebra, geometry, 
+                Calculus 1 and Calculus 2 to help refugee and immigrant children move forward to their regular class 
+                level as many refugee and immigrant children are admitted two years behind their actual class level. 
+                For example, a newly arrived 9th grader is placed in 7th grad at any middle or high school in the United 
+                States. We provide them with the necessary help to move forward to their actual class level.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-dark-blue">Computer Science Tutoring</h4>
+                <p className="text-dark-blue">Bilingual computer science tutoring to foster technical skills.
+                Our bilingual teachers provide computer science tutoring to refugee and immigrant children, focusing on 
+                foundational skills in programming, web development, and computer literacy. This includes teaching coding 
+                languages such as Python, JavaScript, and HTML/CSS, as well as essential computer skills like using software 
+                applications and understanding basic hardware components. By equipping students with these technical skills, 
+                we aim to enhance their educational and career opportunities in the technology sector.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-dark-blue">SAT and ACT Preparation for College Admission</h4>
+                <p className="text-dark-blue">Bilingual SAT and ACT preparation for college admission.
+                We provide excellent services for SAT and ACT preparation free of charge as most Refugee/immigrant 
+                youth are unaware of the American school system and requirements for college admissions. Our bilingual SAT 
+                and ACT preparation program helps bridge this gap by providing comprehensive instruction and practice in 
+                test-taking strategies, critical reading, math, and writing skills. This ensures that students are well-prepared 
+                to achieve competitive scores and meet college admission requirements.
+                </p>
+              </div>
+              </div>
+            )}
+            </div>
           <div>
             <h3 className="text-xl font-bold text-blue">Personalized Support</h3>
             <p className="text-dark-blue">One-on-one tutoring and mentoring to bridge academic gaps.</p>
