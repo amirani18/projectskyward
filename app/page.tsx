@@ -54,7 +54,7 @@ export default function Home() {
       {/* Mission Section */}
       <section className="p-8 bg-light-blue text-center">
         <Image
-          src="/no_words_logo.png"
+          src="/logo2.png"
           alt="Project Skyward Logo"
           width={100}
           height={100}
