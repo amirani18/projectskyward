@@ -129,7 +129,7 @@ export default function CheckoutForm() {
       <div className="flex gap-4">
         <div className="flex-1">
           <label htmlFor="card-expiry" className="block text-lg font-medium mb-2">
-            Expiration Date
+            Expiration
           </label>
           <CardExpiryElement
             id="card-expiry"
@@ -139,7 +139,7 @@ export default function CheckoutForm() {
 
         <div className="flex-1">
           <label htmlFor="card-cvc" className="block text-lg font-medium mb-2">
-            CVV
+            CVC
           </label>
           <CardCvcElement
             id="card-cvc"
