@@ -12,10 +12,15 @@ const links = [
 export default function NavLinks({ isNavOpen }: { isNavOpen: boolean }) {
   return (
     <nav
-      className={`fixed md:static top-0 left-0 w-full md:w-auto bg-dark-blue md:bg-transparent text-light-blue
-      flex flex-col md:flex-row items-center gap-24 md:gap-6 transition-all duration-500
+      className={`fixed md:static top-10 left-0 w-full md:w-auto bg-dark-blue md:bg-transparent text-light-blue
+      flex flex-col md:flex-row items-center gap-10 md:gap-6 transition-all duration-500 pt-4
       ${isNavOpen ? "h-screen" : "h-0"} md:h-auto overflow-hidden`}
     >
+      <img
+        src="/logo2.png"
+        alt="Logo"
+        className="w-12 h-12 md:w-10 md:h-10 object-contain mb-1 md:mb-0"
+      />
       {links.map((link) => (
       <Link
         key={link.name}
