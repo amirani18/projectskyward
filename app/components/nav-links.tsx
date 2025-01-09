@@ -17,6 +17,7 @@ export default function NavLinks({ isNavOpen }: { isNavOpen: boolean }) {
       flex flex-col md:flex-row items-center gap-10 md:gap-6 transition-all duration-500 pt-4
       ${isNavOpen ? "h-screen" : "h-0"} md:h-auto overflow-hidden`}
     >
+      {isNavOpen && (
       <Image
         src="/logo2.png"
         alt="Logo"
@@ -24,6 +25,7 @@ export default function NavLinks({ isNavOpen }: { isNavOpen: boolean }) {
         height={48}
         className="w-12 h-12 md:w-10 md:h-10 object-contain mb-1 md:mb-0"
       />
+      )}
       {links.map((link) => (
       <Link
         key={link.name}

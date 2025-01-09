@@ -8,6 +8,7 @@ export default function CheckoutForm() {
   const elements = useElements();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [amount, setAmount] = useState(500); // Default amount in cents ($5)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,7 +25,7 @@ export default function CheckoutForm() {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 5000 }), // Amount in cents (e.g., $50.00)
+        body: JSON.stringify({ amount }), // Send amount in cents
       });
 
       const { clientSecret, error } = await res.json();
@@ -53,10 +54,64 @@ export default function CheckoutForm() {
     setLoading(false);
   };
 
+  const handleAmountChange = (newAmount) => {
+    setAmount(newAmount);
+    setMessage("");
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+      {/* Donation Amount Selection */}
       <div>
-        <label htmlFor="card-element" className="block text-sm font-medium">
+        <label className="block text-lg font-medium mb-2">Choose Donation Amount</label>
+        <div className="flex gap-3 justify-center mb-4">
+          <button
+            type="button"
+            className={`px-4 py-2 rounded-lg ${
+              amount === 500 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+            }`}
+            onClick={() => handleAmountChange(500)}
+          >
+            $5
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 rounded-lg ${
+              amount === 1000 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+            }`}
+            onClick={() => handleAmountChange(1000)}
+          >
+            $10
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 rounded-lg ${
+              amount === 2000 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+            }`}
+            onClick={() => handleAmountChange(2000)}
+          >
+            $20
+          </button>
+        </div>
+        <div className="flex items-center gap-2">
+          <label htmlFor="custom-amount" className="text-sm font-medium">
+            Custom Amount ($):
+          </label>
+          <input
+            id="custom-amount"
+            type="number"
+            min="1"
+            step="1"
+            className="p-2 border rounded-md w-28"
+            value={amount / 100}
+            onChange={(e) => handleAmountChange(Math.round(Number(e.target.value) * 100))}
+          />
+        </div>
+      </div>
+
+      {/* Card Details */}
+      <div>
+        <label htmlFor="card-element" className="block text-lg font-medium mb-2">
           Card Details
         </label>
         <CardElement
@@ -64,14 +119,18 @@ export default function CheckoutForm() {
           className="p-3 border border-gray-300 rounded-md"
         />
       </div>
+
+      {/* Submit Button */}
       <button
         type="submit"
-        disabled={!stripe || loading}
-        className="bg-blue text-white px-4 py-2 rounded-lg hover:bg-dark-blue disabled:opacity-50"
+        disabled={!stripe || loading || amount < 100}
+        className="bg-blue-600 text-white w-full py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
       >
-        {loading ? "Processing..." : "Donate"}
+        {loading ? "Processing..." : `Donate $${(amount / 100).toFixed(2)}`}
       </button>
-      {message && <p className="text-center text-red-600">{message}</p>}
+
+      {/* Message */}
+      {message && <p className="text-center text-green-600 mt-4">{message}</p>}
     </form>
   );
 }
