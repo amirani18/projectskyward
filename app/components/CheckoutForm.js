@@ -9,7 +9,7 @@ export default function CheckoutForm() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [amount, setAmount] = useState(500); // Default amount in cents ($5)
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,7 +26,8 @@ export default function CheckoutForm() {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, email }), // Send amount and email
+        // body: JSON.stringify({ amount, email }), // Send amount and email
+        body: JSON.stringify({ amount }), // Send amount only
       });
 
       const { clientSecret, error } = await res.json();
@@ -46,7 +47,8 @@ export default function CheckoutForm() {
       }
 
       if (paymentIntent.status === "succeeded") {
-        setMessage("Payment successful! A confirmation email has been sent to " + email);
+        // setMessage("Payment successful! A confirmation email has been sent to " + email);
+        setMessage("Payment successful!");
       }
     } catch (error) {
       setMessage(error.message);
@@ -62,7 +64,7 @@ export default function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-      {/* Email Input */}
+      {/* Email Input
       <div>
         <label htmlFor="email" className="block text-lg font-medium mb-2">
           Email Address
@@ -76,7 +78,7 @@ export default function CheckoutForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </div>
+      </div> */}
 
       {/* Donation Amount Selection */}
       <div>
