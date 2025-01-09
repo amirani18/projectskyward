@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import NavLinks from "./components/nav-links";
-import Donate from "./donate/page";
 
 
 export default function Home() {
