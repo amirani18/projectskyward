@@ -126,13 +126,13 @@ export default function Home() {
         <p className="text-lg mb-4 text-dark-blue">Join us in empowering refugee youth and making a difference.</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <a
-            href="#donate"
+            href="/donate"
             className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
           >
             Donate
           </a>
           <a
-            href="#volunteer"
+            href="/volunteer"
             className="border border-blue text-blue px-6 py-3 rounded-lg hover:bg-blue hover:text-white"
           >
             Volunteer
