@@ -155,12 +155,25 @@ export default function Home() {
         </a>
       </section>
 
-
       {/* Footer Section */}
-      <footer className="bg-dark-blue text-white p-6 text-center">
-        <p>Contact us: +406-880-3340 </p>
-        <p>Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p>
-        <p>Website: www.projectskyward.org</p>
+      <footer className="bg-dark-blue text-white p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+          {/* Logo */}
+          <div className="flex justify-center md:justify-start">
+            <Image
+              src="/logo.png"
+              alt="Project Skyward Logo"
+              width={150}
+              height={150}
+            />
+          </div>
+          {/* Contact Information */}
+          <div className="text-center md:text-right text-sm">
+            <p><span role="img" aria-label="phone">📞</span> Contact Us: +406-880-3340</p>
+            <p><span role="img" aria-label="location">📍</span> Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p>
+            <p><span role="img" aria-label="website">🌐</span> Website: www.projectskyward.org</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
