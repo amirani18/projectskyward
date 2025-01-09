@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
 
     // Send email confirmation
     const emailMessage = {
-      from: process.env.EMAIL_USER,
+      from: `"Project Skyward" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Donation Confirmation - Project Skyward",
       text: `Thank you for your generous donation of $${(amount / 100).toFixed(
