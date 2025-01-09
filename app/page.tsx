@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import NavLinks from "./components/nav-links";
+import Donate from "./donate/page";
 
 
 export default function Home() {
@@ -125,18 +126,18 @@ export default function Home() {
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Take Action</h2>
         <p className="text-lg mb-4 text-dark-blue">Join us in empowering refugee youth and making a difference.</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
-          <a
-            href="/donate"
+          <button
             className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
+            onClick={() => window.location.href = "/donate"}
           >
             Donate
-          </a>
-          <a
-            href="/volunteer"
+          </button>
+          <button
             className="border border-blue text-blue px-6 py-3 rounded-lg hover:bg-blue hover:text-white"
+            onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfits6lU7kLuajJ_nXvLtHXj4ZnFtnCxjdQbMPHh3mfuqCQdg/viewform?usp=sharing", "_blank")}
           >
             Volunteer
-          </a>
+          </button>
         </div>
       </section>
 
