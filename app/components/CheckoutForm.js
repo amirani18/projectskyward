@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from "@stripe/react-stripe-js";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -9,7 +9,7 @@ export default function CheckoutForm() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [amount, setAmount] = useState(500); // Default amount in cents ($5)
-  // const [email, setEmail] = useState("");
+  const [postalCode, setPostalCode] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,8 +26,7 @@ export default function CheckoutForm() {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ amount, email }), // Send amount and email
-        body: JSON.stringify({ amount }), // Send amount only
+        body: JSON.stringify({ amount }), // Send amount
       });
 
       const { clientSecret, error } = await res.json();
@@ -38,7 +37,12 @@ export default function CheckoutForm() {
       // Confirm the payment
       const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-          card: elements.getElement(CardElement),
+          card: elements.getElement(CardNumberElement),
+          billing_details: {
+            address: {
+              postal_code: postalCode,
+            },
+          },
         },
       });
 
@@ -47,7 +51,6 @@ export default function CheckoutForm() {
       }
 
       if (paymentIntent.status === "succeeded") {
-        // setMessage("Payment successful! A confirmation email has been sent to " + email);
         setMessage("Payment successful!");
       }
     } catch (error) {
@@ -64,22 +67,6 @@ export default function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-      {/* Email Input
-      <div>
-        <label htmlFor="email" className="block text-lg font-medium mb-2">
-          Email Address
-        </label>
-        <input
-          id="email"
-          type="email"
-          className="p-3 border border-gray-300 rounded-md w-full"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div> */}
-
       {/* Donation Amount Selection */}
       <div>
         <label className="block text-lg font-medium mb-2">Choose Donation Amount</label>
@@ -130,12 +117,49 @@ export default function CheckoutForm() {
 
       {/* Card Details */}
       <div>
-        <label htmlFor="card-element" className="block text-lg font-medium mb-2">
-          Card Details
+        <label htmlFor="card-number" className="block text-lg font-medium mb-2">
+          Card Number
         </label>
-        <CardElement
-          id="card-element"
-          className="p-3 border border-gray-300 rounded-md"
+        <CardNumberElement
+          id="card-number"
+          className="p-3 border border-gray-300 rounded-md w-full"
+        />
+      </div>
+
+      <div className="flex gap-4">
+        <div className="flex-1">
+          <label htmlFor="card-expiry" className="block text-lg font-medium mb-2">
+            Expiration Date
+          </label>
+          <CardExpiryElement
+            id="card-expiry"
+            className="p-3 border border-gray-300 rounded-md w-full"
+          />
+        </div>
+
+        <div className="flex-1">
+          <label htmlFor="card-cvc" className="block text-lg font-medium mb-2">
+            CVV
+          </label>
+          <CardCvcElement
+            id="card-cvc"
+            className="p-3 border border-gray-300 rounded-md w-full"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="postal-code" className="block text-lg font-medium mb-2">
+          ZIP Code
+        </label>
+        <input
+          id="postal-code"
+          type="text"
+          className="p-3 border border-gray-300 rounded-md w-full"
+          placeholder="Enter your ZIP code"
+          value={postalCode}
+          onChange={(e) => setPostalCode(e.target.value)}
+          required
         />
       </div>
 

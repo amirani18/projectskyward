@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
 
-      {/* Donate Section */}
+      {/* Donate Section
       <section id="donate" className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Donate</h2>
         <p className="text-lg mb-4 text-dark-blue">
@@ -153,7 +153,7 @@ export default function Home() {
         >
           Donate Now
         </a>
-      </section>
+      </section> */}
 
       {/* Footer Section */}
       <footer className="bg-dark-blue text-white p-6">
