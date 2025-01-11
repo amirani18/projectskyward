@@ -74,15 +74,6 @@ export default function CheckoutForm() {
           <button
             type="button"
             className={`px-4 py-2 rounded-lg ${
-              amount === 500 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => handleAmountChange(500)}
-          >
-            $5
-          </button>
-          <button
-            type="button"
-            className={`px-4 py-2 rounded-lg ${
               amount === 1000 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
             }`}
             onClick={() => handleAmountChange(1000)}
@@ -97,6 +88,15 @@ export default function CheckoutForm() {
             onClick={() => handleAmountChange(2000)}
           >
             $20
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 rounded-lg ${
+              amount === 3000 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+            }`}
+            onClick={() => handleAmountChange(3000)}
+          >
+            $30
           </button>
         </div>
         <div className="flex items-center gap-2">
