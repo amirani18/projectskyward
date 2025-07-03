@@ -7,6 +7,8 @@ const links = [
   { name: "About", href: "/about" },
   { name: "Our Services", href: "/services" },
   { name: "Take Action", href: "/take-action" },
+  { name: "Upcoming School", href: "/location" },
+  { name: "Next Eon Classes", href: "/promotional-classes" },
 ];
 
 
