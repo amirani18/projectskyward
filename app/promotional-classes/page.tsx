@@ -55,6 +55,10 @@ export default function PromotionalClasses() {
       <h1 className="text-4xl font-bold text-center">Promotional South Asian Cooking Classes</h1>
         <section className="text-center mb-8">
           <p className="text-lg">
+          Project Skyward is raising funds towards buying a school building in a commercial area. In an effort to promote our educational program, 
+          we are offering a variety of promotional classes in the Fall of 2025. 
+          </p>
+          <p className="text-lg mt-4">
             Learn how to cook authentic South Asian dishes with our expert chefs.
             Join us for a series of hands-on cooking classes where you will learn to prepare traditional recipes
             from various South Asian cuisines. Whether you are a beginner or an experienced cook, our classes
