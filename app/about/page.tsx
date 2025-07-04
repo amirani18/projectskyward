@@ -118,7 +118,7 @@ export default function About() {
 
         {/* Additional Sections */}
         <section>
-          <h2 className="text-2xl font-semibold mb-2">Why We're Unique</h2>
+          <h2 className="text-2xl font-semibold mb-2">Why We Are Unique</h2>
           <p>
             No other programs or companies provide the same comprehensive, refugee-focused educational services locally or nationally.
           </p>
