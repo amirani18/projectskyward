@@ -73,11 +73,29 @@ export default function PromotionalClasses() {
                 <li>Each class involves two hours of creating a dish from the South Asian cuisine. Twenty students may be admitted per class.</li>
                 <li>Pricing Options for Admission:</li>
             </ul>
-              <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="bg-light-blue p-6 rounded-lg shadow-md">
-                    <h3 className="text-2xl font-semibold mb-4 text-center"> General Admission </h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-center"> One Class </h3>
                     <p className="text-4xl font-semibold text-center">
-                    $150
+                    $75
+                    </p>
+                    {/* <p className="text-sm">
+                    Includes all materials and ingredients.
+                    </p> */}
+                </div>
+                <div className="bg-light-blue p-6 rounded-lg shadow-md">
+                    <h3 className="text-2xl font-semibold mb-4 text-center"> Two Classes </h3>
+                    <p className="text-4xl font-semibold text-center">
+                    $140
+                    </p>
+                    {/* <p className="text-sm">
+                    Includes all materials and ingredients.
+                    </p> */}
+                </div>
+                <div className="bg-light-blue p-6 rounded-lg shadow-md">
+                    <h3 className="text-2xl font-semibold mb-4 text-center"> Three Classes </h3>
+                    <p className="text-4xl font-semibold text-center">
+                    $210
                     </p>
                     {/* <p className="text-sm">
                     Includes all materials and ingredients.
@@ -86,7 +104,7 @@ export default function PromotionalClasses() {
                 <div className="bg-light-blue p-6 rounded-lg shadow-md">
                     <h3 className="text-2xl font-semibold mb-4 text-center"> Weekly Package </h3>
                     <p className="text-4xl font-semibold text-center">
-                    $550
+                    $325
                     </p>
                     {/* <p className="text-sm">
                     Includes all materials and ingredients.
@@ -94,7 +112,7 @@ export default function PromotionalClasses() {
                 </div>
               </section>
             <p className="mt-2 text-sm font-semibold">
-              All pricing options include materials and ingredients at every class.
+              All pricing options include materials and ingredients at every class. Pricing options are designed to encourage students to take multiple classes, with a discount for the weekly package. Pricing is set for individuals, but families are welcome to attend together.
             </p>
             </div>
         </section>

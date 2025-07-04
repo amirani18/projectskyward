@@ -1,14 +1,37 @@
 "use client";
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavLinks from "../components/nav-links";
 
 export default function About() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
+  const partnerImages = [
+    { src: "/MissoulaInterfaith.jpg", alt: "Missoula Interfaith Collaborative", caption: "Missoula Interfaith Collaborative is a key partner, providing support and resources to help us achieve our mission." },
+    { src: "/SleepInn.png", alt: "Sleep Inn", caption: "Sleep Inn is a proud partner, helping us create a welcoming environment for our students." },
+    { src: "/RedLionInn.png", alt: "Red Lion Inn", caption: "Red Lion Inn supports our mission by providing resources and support to uplift our educational program." },
+    { src: "/ComfortInn.jpg", alt: "Comfort Inn", caption: "Comfort Inn is a valued partner, offering resources and support to enhance our educational programs." },
+    { src: "/GhareebNawaz.png", alt: "Ghareeb Nawaz", caption: "Ghareeb Nawaz is a community partner, providing cultural insights and support to our refugee youth." },
+  ];
+
+  const nextSlide = () => {
+    setCarouselIndex((carouselIndex + 1) % partnerImages.length);
+  };
+
+  const prevSlide = () => {
+    setCarouselIndex((carouselIndex - 1 + partnerImages.length) % partnerImages.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prevIndex) => (prevIndex + 1) % partnerImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [partnerImages.length]);
 
   return (
     <div className="min-h-screen bg-light-blue text-dark-blue font-sans flex flex-col">
@@ -50,52 +73,81 @@ export default function About() {
         </nav>
       </header>
 
-      <main className="flex-grow max-w-4xl mx-auto p-8 space-y-8">
-      <h1 className="text-4xl font-bold text-center">About Us</h1>
+      {/* Hero Summary */}
+      <section className="bg-blue-100 p-6 text-center">
+        <h2 className="text-3xl font-bold mb-2">Empowering Refugee Youth Through Education</h2>
+        <p className="text-lg max-w-2xl mx-auto">
+          Project Skyward supports displaced youth by bridging academic gaps, fostering inclusion, and ensuring equitable access to education.
+        </p>
+      </section>
+
+      <main className="flex-grow max-w-4xl mx-auto p-8 space-y-10">
+        {/* Stats Section */}
+        <section className="flex justify-around text-center">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-600">500,000+</h3>
+            <p className="text-sm">Refugees resettled in 10 years</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-600">60,000+</h3>
+            <p className="text-sm">Admitted in 2023 alone</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-600">25%</h3>
+            <p className="text-sm">Are under age 18</p>
+          </div>
+        </section>
+
+        {/* 2-Column Layout */}
+        <section className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">About Us</h2>
+            <p>
+              Each year, thousands of refugee youth enter the U.S. education system, highlighting a significant demand for specialized educational services.
+              These services are crucial to bridging the academic gaps many of these students face, ensuring they receive the support needed to thrive and integrate successfully.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Our Aim</h2>
+            <p>
+              We focus on students aged 12 and up, who are among the most vulnerable in the education system.
+              Our programs support both academic achievement and emotional well-being.
+            </p>
+          </div>
+        </section>
+
+        {/* Additional Sections */}
         <section>
-          <h2 className="text-3xl font-semibold mb-4">About Us</h2>
-          <p className="text-lg">
-            Each year, thousands of refugee youth enter the U.S. education system,
-            highlighting a significant demand for specialized educational services.
-            These services are crucial to bridging the academic gaps many of these
-            students face, ensuring they receive the support needed to thrive and
-            integrate successfully in the American school system.
+          <h2 className="text-2xl font-semibold mb-2">Why We're Unique</h2>
+          <p>
+            No other programs or companies provide the same comprehensive, refugee-focused educational services locally or nationally.
           </p>
         </section>
 
         <section>
-          <h2 className="text-3xl font-semibold mb-4">Resettled Refugees</h2>
-          <p className="text-lg">
-            There are more than 500 thousand refugees resettled in the United States
-            in the last 10 years. In 2023 alone, more than 60 thousand refugees and
-            asylum seekers have been admitted to the United States from many war-torn
-            countries. Statistically, 25% of admitted youth are under 18 years of age.
+          <h2 className="text-2xl font-semibold mb-2">Why It Matters</h2>
+          <p>
+            Equitable education is a constitutional right. Every student—regardless of race, culture, or religion—deserves the chance to thrive.
           </p>
         </section>
 
+        {/* Partner Carousel Section */}
         <section>
-          <h2 className="text-3xl font-semibold mb-4">Niche</h2>
-          <p className="text-lg">
-            There are no other programs or companies that provide the same
-            comprehensive, refugee-focused educational services locally or nationally.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-3xl font-semibold mb-4">Aim</h2>
-          <p className="text-lg">
-            Our focus will be on students ages 12 and up, who are among the most
-            vulnerable in the education system.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-3xl font-semibold mb-4">Reason</h2>
-          <p className="text-lg">
-            Equitable education is a constitutional right, and every student
-            regardless of their race, culture, and religion deserves the chance to
-            thrive.
-          </p>
+          <h2 className="text-2xl font-semibold mb-4 text-center">Our Partners and Sponsors</h2>
+          <div className="relative w-full h-100 bg-black rounded-lg shadow-md overflow-hidden">
+            <Image
+              src={partnerImages[carouselIndex].src}
+              alt={partnerImages[carouselIndex].alt}
+              className="object-contain w-full h-full"
+              width={800}
+              height={600}
+            />
+            <p className="absolute bottom-0 w-full bg-light-blue text-dark-blue text-sm p-4 text-center">
+              {partnerImages[carouselIndex].caption}
+            </p>
+            <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-dark-blue text-white px-3 py-1 rounded-full">◀</button>
+            <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-dark-blue text-white px-3 py-1 rounded-full">▶</button>
+          </div>
         </section>
       </main>
 
@@ -113,7 +165,7 @@ export default function About() {
           </div>
           {/* Contact Information */}
           <div className="text-center md:text-right text-sm">
-            <p><span role="img" aria-label="phone">📞</span> Contact Us: +406-880-3340</p>
+            <p><span role="img" aria-label="phone">📞</span> Contact Us: +406-396-5719</p>
             <p><span role="img" aria-label="location">📍</span> Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p>
             <p><span role="img" aria-label="website">🌐</span> Website: www.projectskyward.org</p>
           </div>
