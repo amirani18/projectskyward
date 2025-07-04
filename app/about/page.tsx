@@ -12,10 +12,10 @@ export default function About() {
 
   const partnerImages = [
     { src: "/MissoulaInterfaith.jpg", alt: "Missoula Interfaith Collaborative", caption: "Missoula Interfaith Collaborative is a key partner, providing support and resources to help us achieve our mission." },
-    { src: "/SleepInn.png", alt: "Sleep Inn", caption: "Sleep Inn is a proud partner, helping us create a welcoming environment for our students." },
-    { src: "/RedLionInn.png", alt: "Red Lion Inn", caption: "Red Lion Inn supports our mission by providing resources and support to uplift our educational program." },
-    { src: "/ComfortInn.jpg", alt: "Comfort Inn", caption: "Comfort Inn is a valued partner, offering resources and support to enhance our educational programs." },
-    { src: "/GhareebNawaz.png", alt: "Ghareeb Nawaz", caption: "Ghareeb Nawaz is a community partner, providing cultural insights and support to our refugee youth." },
+    { src: "/SleepInn.png", alt: "Sleep Inn", caption: "Sleep Inn, located in Missoula, Montana, is a proud partner, helping us create a welcoming environment for our students." },
+    { src: "/RedLionInn.png", alt: "Red Lion Inn", caption: "Red Lion Inn, located in Missoula, Montana, supports our mission by providing resources and support to uplift our educational program." },
+    { src: "/ComfortInn.jpg", alt: "Comfort Inn", caption: "Comfort Inn, located in Missoula, Montana, is a valued partner, offering resources and support to enhance our educational programs." },
+    { src: "/GhareebNawaz.png", alt: "Ghareeb Nawaz", caption: "Ghareeb Nawaz, located at the University of Illinois at Chicago, is a community partner, providing cultural insights and support to our refugee youth." },
   ];
 
   const nextSlide = () => {
