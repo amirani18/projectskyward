@@ -88,7 +88,7 @@ export default function About() {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">60,000+</h3>
-            <p className="text-sm">Admitted in 2023 alone</p>
+            <p className="text-sm">Refugees admitted in 2023 alone</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">25%</h3>
