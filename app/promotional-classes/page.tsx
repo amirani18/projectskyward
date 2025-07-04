@@ -128,7 +128,7 @@ export default function PromotionalClasses() {
               height={600}
             />
             <ul className="text-lg list-disc list-inside">
-              <li>Chicken Jalfezi</li>
+              <li>Chicken Jalfrezi</li>
               <li>Hyderabadi Shahi Korma</li>
               <li>Chicken Karahi</li>
               <li>Chicken and Potato Curry</li>
