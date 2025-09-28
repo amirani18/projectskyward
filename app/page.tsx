@@ -66,6 +66,29 @@ export default function Home() {
         </p>
       </section>
 
+      {/* Acadmic Competitions Section */}
+      <section className="p-8 bg-light-blue text-center">
+        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">NEW!! Academic Competitions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <h3 className="text-xl font-bold text-blue">📜 Essay Writing</h3>
+            <p className="text-dark-blue">This competition is themed on writing a strong essay on the Impact of Extreme weather events around the
+            world. First, second and third place winner will receive a cash prize. Visit the Competitions tab for more information!</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-blue">🎨 Art</h3>
+            <p className="text-dark-blue">This competition is themed on ancient Egyptian art, specifically the 18th to 20th Dynasties. Students are
+required to create a thoughtful art piece in one hour in person. First, Second and Third Place winners will
+receive a cash prize. Visit the Competitions tab for more information!</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-blue">🧮 Mathematics</h3>
+            <p className="text-dark-blue">This tournament-style competition is based on 10 Math games. Elementary school students must be in grades
+            4th and 5th to participate in the competition. First, Second and Third place winners will receive a cash prize. Visit the Competitions tab for more information!</p>
+          </div>
+        </div>
+      </section>
+
 
       {/* How We Help Section */}
       <section className="p-8 bg-white text-center">
@@ -88,7 +111,7 @@ export default function Home() {
 
 
       {/* Impact Section */}
-      <section className="p-8 bg-light-blue text-center">
+      {/* <section className="p-8 bg-light-blue text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Impact</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
@@ -104,23 +127,23 @@ export default function Home() {
             <p className="text-dark-blue">Refugee children under 18 admitted in 2023.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Refugee Testimonials Section */}
-      <section className="p-8 bg-white text-center">
+      {/* <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
         <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
           &quot;Project Skyward gave me hope and the tools to succeed in school and life.
           I feel like I belong now.&quot; – A Refugee Youth &quot;
         </blockquote>
-      </section>
+      </section> */}
 
 
       {/* Take Action Section */}
       <section className="p-8 bg-light-blue text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Take Action</h2>
-        <p className="text-lg mb-4 text-dark-blue">Join us in empowering refugee youth and making a difference.</p>
+        <p className="text-lg mb-4 text-dark-blue">Join us in empowering youth and making a difference.</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <button
             className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
