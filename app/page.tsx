@@ -62,10 +62,7 @@ export default function Home() {
         />
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
         <p className="text-lg text-dark-blue">
-          &quot;Project Skyward empowers newly-arrived refugee youth in Indianapolis, Bloomington, and Chicago
-          by providing culturally responsive education, bilingual programs, and
-          community-driven support. We foster belonging, resilience, and success as
-          they navigate life in America.&quot;
+          &quot;Project Skyward is a community-powered pre-college program dedicated to equipping all students with the skills, confidence, and academic foundation to reach their highest potential. Through accessible enrichment classes, academic competitions, and mentorship opportunities, we help students soar.&quot;
         </p>
       </section>
 
