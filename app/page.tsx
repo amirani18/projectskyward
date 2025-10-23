@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import NavLinks from "./components/nav-links";
 
-
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const handleToggleNav = () => {
@@ -69,6 +68,15 @@ export default function Home() {
       {/* Academic Competitions Section */}
       <section className="p-8 bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4 text-dark-blue">NEW!! Academic Competitions</h2>
+        {/* Registration Button */}
+        <div>
+            <button
+              className="bg-blue text-white px-8 py-4 text-lg font-bold rounded-lg hover:bg-dark-blue hover:scale-105 transition-transform shadow-lg"
+              onClick={() => window.open("https://forms.gle/c5fatrUMhTE98TjJ9", "_blank")}
+            >
+              Register!
+            </button>
+          </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <h3 className="text-xl font-bold text-blue">📜 Essay Writing</h3>

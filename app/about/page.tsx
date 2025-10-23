@@ -80,7 +80,7 @@ export default function About() {
       </section>
 
       <main className="flex-grow max-w-4xl mx-auto p-8 space-y-10">
-        {/* Stats Section */}
+        {/* Stats Section
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">500,000+</h3>
@@ -94,14 +94,14 @@ export default function About() {
             <h3 className="text-3xl font-bold text-blue-600">25%</h3>
             <p className="text-sm">Are under age 18</p>
           </div>
-        </section>
+        </section> */}
 
         {/* 2-Column Layout */}
         <section className="grid md:grid-cols-2 gap-6">
           <div>
             <h2 className="text-2xl font-semibold mb-2">About Us</h2>
             <p>
-              Each year, thousands of refugee youth enter the U.S. education system, highlighting a significant demand for specialized educational services.
+              Each year, thousands of students enter the U.S. education system, highlighting a significant demand for specialized educational services.
               These services are crucial to bridging the academic gaps many of these students face, ensuring they receive the support needed to thrive and integrate successfully.
             </p>
           </div>

@@ -56,13 +56,13 @@ export default function Services() {
         <section className="text-center mb-8">
           <p className="text-lg">
             At Project Skyward, we are committed to providing a holistic suite of services
-            designed to help refugee youth overcome the unique challenges they face
+            designed to help students overcome the unique challenges they face
             when integrating into the U.S. school system. With a focus on language
             development, academic support, cultural integration, and emotional
-            well-being, our programs are tailored to meet the specific needs of
-            newly-arrived refugee students. Our goal is to ensure every child has the
-            opportunity to succeed academically, socially, and emotionally, regardless
-            of their background or the barriers they face.
+            well-being, our programs are tailored to meet the needs of students from all 
+            walks of life. We help American national and students kids regardless of their faith, 
+            race or color. Our goal is to ensure every child has the opportunity to succeed academically, 
+            socially, and emotionally, regardless of their background or the barriers they face.
           </p>
         </section>
 
@@ -70,7 +70,7 @@ export default function Services() {
             <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4"> Bilingual Education Program</h3>
             <p className="text-lg">
-              English as a Second Language (ESL) instruction. Bilingual tutoring and
+              English as a Second Language (ESL) instruction. Bilingual pre-college and
               classwork assistance. Scroll to learn more.
             </p>
             <p className="mt-2 text-sm font-semibold">
@@ -82,7 +82,7 @@ export default function Services() {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4">Academic Support and Mentorship</h3>
             <p className="text-lg">
-              One-on-one tutoring in core subjects. After-school study programs. Pairing
+              One-on-one mentoring in core subjects. After-school study programs. Pairing
               students with mentors. 
             </p>
             <p className="mt-2 text-sm font-semibold">
@@ -117,10 +117,10 @@ export default function Services() {
         </section>
 
         <section className="text-center">
-          <h2 className="text-3xl font-semibold mb-4">Deep Dive Into Our Tutoring Services</h2>
+          <h2 className="text-3xl font-semibold mb-4">Deep Dive Into Our College Preparation Services</h2>
             <p className="text-lg">
-            Our tutoring services at Project Skyward are designed to provide comprehensive support 
-            to refugee youth. We offer personalized ESL instruction, bilingual tutoring, and academic 
+            Our college preparation services at Project Skyward are designed to provide comprehensive support 
+            to youth. We offer personalized ESL instruction, bilingual tutoring, and academic 
             assistance to help students excel in their studies. Our dedicated tutors work closely with 
             each student to address their unique needs and challenges, ensuring they receive the guidance 
             and encouragement necessary to succeed.
@@ -152,8 +152,8 @@ export default function Services() {
             <p className="text-lg">
               Bilingual math tutoring to help bridge academic gaps.
               Our bilingual teachers provide most needed educational help in middle school Math, algebra, geometry,
-              Calculus 1 and Calculus 2 to help refugee and immigrant children move forward to their regular class
-              level as many refugee and immigrant children are admitted two years behind their actual class level.
+              Calculus 1 and Calculus 2 to help students move forward to their regular class
+              level as many students and immigrant children are admitted two years behind their actual class level.
               For example, a newly arrived 9th grader is placed in 7th grad at any middle or high school in the United
               States. We provide them with the necessary help to move forward to their actual class level.
             </p>
@@ -166,7 +166,7 @@ export default function Services() {
             <h3 className="text-2xl font-semibold mb-4">Computer Science Tutoring</h3>
             <p className="text-lg">
               Bilingual computer science tutoring to foster technical skills.
-              Our bilingual teachers provide computer science tutoring to refugee and immigrant children, focusing on
+              Our bilingual teachers provide computer science tutoring to students and immigrant children, focusing on
               foundational skills in programming, web development, and computer literacy. This includes teaching coding
               languages such as Python, JavaScript, and HTML/CSS, as well as essential computer skills like using software
               applications and understanding basic hardware components. By equipping students with these technical skills,

@@ -2,6 +2,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import NavLinks from "../components/nav-links";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CompetitionPayment from "../components/CompetitionPayment";
+
+// Use the environment variable
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 
 export default function Competitions() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -93,6 +99,13 @@ export default function Competitions() {
             <a href="/Project%20Skyward%20Mathmatical%20Compitition%20Flyer%20Final.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
           </div>
         </div>
+
+        {/* Payment Section */}
+        <section className="bg-light-blue p-6 rounded-lg shadow-lg">
+          <Elements stripe={stripePromise}>
+            <CompetitionPayment />
+          </Elements>
+        </section>
       </main>
 
       {/* Footer Section */}
