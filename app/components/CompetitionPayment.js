@@ -178,7 +178,7 @@ export default function CompetitionPayment() {
         disabled={!stripe || loading || amount < 100}
         className="bg-blue-600 text-white w-full py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
       >
-        {loading ? "Processing..." : `Donate $${(amount / 100).toFixed(2)}`}
+        {loading ? "Processing..." : `Pay to Register $${(amount / 100).toFixed(2)}`}
       </button>
 
       {/* Message */}
