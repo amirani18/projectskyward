@@ -15,7 +15,6 @@ export default function Competitions() {
     setIsNavOpen(!isNavOpen);
   };
 
-
   return (
     <div className="min-h-screen bg-white text-dark-blue font-sans flex flex-col">
       {/* Header Section */}
@@ -64,39 +63,39 @@ export default function Competitions() {
           <div className="bg-light-blue rounded-lg shadow-md p-4 flex flex-col items-center">
             <h3 className="text-xl font-bold mb-2 text-center">📜 Essay Competition</h3>
             <embed
-              src="/Project%20Skyward%20Essay%20writing%20competition.pdf"
+              src="/ESSAY_WRITING_CONTEST.pdf"
               type="application/pdf"
               width="100%"
               height="400px"
               className="rounded border border-gray-300"
             />
-            <a href="/Project%20Skyward%20Essay%20writing%20competition.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
+            <a href="/ESSAY_WRITING_CONTEST.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
           </div>
 
           {/* Tile 2 - Art Competition */}
           <div className="bg-light-blue rounded-lg shadow-md p-4 flex flex-col items-center">
             <h3 className="text-xl font-bold mb-2 text-center">🎨 Art Competition</h3>
             <embed
-              src="/Project%20Skyward%20Art%20Competition.pdf"
+              src="/ART_COMPETITION.pdf"
               type="application/pdf"
               width="100%"
               height="400px"
               className="rounded border border-gray-300"
             />
-            <a href="/Project%20Skyward%20Art%20Competition.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
+            <a href="/ART_COMPETITION.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
           </div>
 
           {/* Tile 3 - Math Competition */}
           <div className="bg-light-blue rounded-lg shadow-md p-4 flex flex-col items-center">
             <h3 className="text-xl font-bold mb-2 text-center">🧮 Math Competition</h3>
             <embed
-              src="/Project%20Skyward%20Mathmatical%20Compitition%20Flyer%20Final.pdf"
+              src="/MATH_COMPETITION.pdf"
               type="application/pdf"
               width="100%"
               height="400px"
               className="rounded border border-gray-300"
             />
-            <a href="/Project%20Skyward%20Mathmatical%20Compitition%20Flyer%20Final.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
+            <a href="/MATH_COMPETITION.pdf" target="_blank" className="mt-3 text-sm text-blue-700 underline">View Fullscreen</a>
           </div>
         </div>
 
