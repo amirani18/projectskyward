@@ -164,7 +164,8 @@ export default function About() {
           {/* Contact Information */}
           <div className="text-center md:text-right text-sm">
             <p><span role="img" aria-label="phone">📞</span> Contact Us: +406-396-5719</p>
-            <p><span role="img" aria-label="location">📍</span> Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p>
+            {/* <p><span role="img" aria-label="location">📍</span> Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p> */}
+            <p><span role="img" aria-label="email"></span> Email: www.projectskyward2025@gmail.com</p>
             <p><span role="img" aria-label="website">🌐</span> Website: www.projectskyward.org</p>
           </div>
         </div>
