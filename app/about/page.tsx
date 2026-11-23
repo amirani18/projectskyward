@@ -36,8 +36,8 @@ export default function About() {
       <section className="bg-linear-to-b from-dusk to-predawn">
         <Container className="grid gap-12 py-20 md:grid-cols-2 md:py-24">
           <div>
-            <Eyebrow>Why we exist</Eyebrow>
-            <Heading className="text-4xl">Talent arrives. Guidance often doesn&apos;t.</Heading>
+            <Eyebrow data-reveal>Why we exist</Eyebrow>
+            <Heading data-reveal data-delay="1" className="text-4xl">Talent arrives. Guidance often doesn&apos;t.</Heading>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-haze">
             <p>
@@ -54,10 +54,10 @@ export default function About() {
 
       <section className="bg-predawn">
         <Container className="py-20 md:py-24">
-          <Eyebrow>What we believe</Eyebrow>
+          <Eyebrow data-reveal>What we believe</Eyebrow>
           <ul className="mt-6 grid gap-5 md:grid-cols-3">
-            {beliefs.map((b) => (
-              <li key={b.title} className="rounded-3xl border-t-[3px] border-gold bg-predawn-deep p-7">
+            {beliefs.map((b, i) => (
+              <li data-reveal data-delay={String((i % 4) + 1)} key={b.title} className="rounded-3xl border-t-[3px] border-gold bg-predawn-deep p-7">
                 <h3 className="font-display text-2xl font-semibold">{b.title}</h3>
                 <p className="mt-3 leading-relaxed text-haze">{b.body}</p>
               </li>
@@ -69,11 +69,11 @@ export default function About() {
       <SkyBlend stops={["predawn", "sky"]} />
       <section className="bg-linear-to-b from-sky via-mist to-dawn text-night">
         <Container className="py-20 md:py-24">
-          <Eyebrow tone="ink">Partners &amp; sponsors</Eyebrow>
-          <Heading className="text-4xl">The people who give us lift.</Heading>
+          <Eyebrow data-reveal tone="ink">Partners &amp; sponsors</Eyebrow>
+          <Heading data-reveal data-delay="1" className="text-4xl">The people who give us lift.</Heading>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {partners.map((p) => (
-              <li key={p.name} className="overflow-hidden rounded-3xl bg-white">
+            {partners.map((p, i) => (
+              <li data-reveal data-delay={String((i % 4) + 1)} key={p.name} className="overflow-hidden rounded-3xl bg-white">
                 <div className="flex h-48 items-center justify-center bg-white p-6">
                   <Image src={p.image} alt={p.name} width={600} height={400} className="max-h-full w-auto object-contain" />
                 </div>
@@ -89,7 +89,7 @@ export default function About() {
 
       <section className="bg-linear-to-b from-dawn to-gold text-night">
         <Container className="flex flex-col items-start justify-between gap-6 py-16 md:flex-row md:items-center">
-          <Heading className="text-4xl">Want to help a student rise?</Heading>
+          <Heading data-reveal data-delay="1" className="text-4xl">Want to help a student rise?</Heading>
           <div className="flex flex-wrap gap-3">
             <ButtonLink href="/get-involved" variant="night">
               Get involved

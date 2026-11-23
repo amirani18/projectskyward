@@ -19,8 +19,8 @@ export default function Locations() {
       <section className="bg-linear-to-b from-sky to-dawn text-night">
         <Container className="py-20 md:py-24">
           <ul className="grid gap-5 md:grid-cols-2">
-            {locations.map((l) => (
-              <li
+            {locations.map((l, i) => (
+              <li data-reveal data-delay={String((i % 4) + 1)}
                 key={l.city}
                 className={`flex flex-col gap-3 rounded-3xl p-8 md:p-10 ${l.isNew ? "bg-night text-paper md:col-span-2" : "bg-mist"}`}
               >
@@ -48,8 +48,8 @@ export default function Locations() {
 
       <section className="bg-linear-to-b from-dawn to-gold-soft text-night">
         <Container className="py-16">
-          <Eyebrow tone="amber">Bring Project Skyward to your city</Eyebrow>
-          <Heading className="max-w-3xl text-4xl">Know a community that needs us? We&apos;d love to hear from you.</Heading>
+          <Eyebrow data-reveal tone="amber">Bring Project Skyward to your city</Eyebrow>
+          <Heading data-reveal data-delay="1" className="max-w-3xl text-4xl">Know a community that needs us? We&apos;d love to hear from you.</Heading>
           <ButtonLink href="/get-involved" variant="night" className="mt-8">
             Get in touch
           </ButtonLink>

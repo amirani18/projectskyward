@@ -10,6 +10,15 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const close = () => setOpen(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Once the page scrolls, the header tightens and casts a soft shadow.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Lock page scroll while the full-screen mobile menu is open.
   useEffect(() => {
@@ -20,8 +29,16 @@ export default function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#1e2c5c] bg-night">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+    <header
+      className={`sticky top-0 z-40 border-b bg-night transition-[box-shadow,border-color] duration-300 ${
+        scrolled ? "border-[#1e2c5c] shadow-[0_8px_30px_rgba(5,10,30,0.45)]" : "border-transparent"
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 transition-[padding] duration-300 ${
+          scrolled ? "py-2" : "py-3.5"
+        }`}
+      >
         <Link href="/" onClick={close} className="flex items-center gap-3 text-paper" aria-label={`${site.name} home`}>
           <Image src="/brand/owl.png" alt="" width={48} height={48} className="h-11 w-11 object-contain" priority />
           <span className="font-display text-xl font-semibold">{site.name}</span>

@@ -13,7 +13,7 @@ export default function PastEvents() {
       <SkyBlend stops={["night", "predawn", "sky", "dawn"]} />
       <section className="bg-dawn text-night">
         <Container className="py-20 md:py-24">
-          <Eyebrow tone="amber">Past flights · Archive</Eyebrow>
+          <Eyebrow data-reveal tone="amber">Past flights · Archive</Eyebrow>
           <Heading as="h1" className="max-w-4xl text-5xl md:text-7xl">
             Where we have already been.
           </Heading>
@@ -27,13 +27,13 @@ export default function PastEvents() {
         <section key={season.season} className="border-t border-dawn-line bg-dawn text-night">
           <Container className="grid gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20">
             <div>
-              <p className="font-display text-5xl font-semibold text-amber">{season.season}</p>
-              <Heading className="mt-3 text-3xl">{season.title}</Heading>
-              <p className="mt-3 leading-relaxed text-ink-soft">{season.blurb}</p>
+              <p data-reveal className="font-display text-5xl font-semibold text-amber">{season.season}</p>
+              <Heading data-reveal data-delay="1" className="mt-3 text-3xl">{season.title}</Heading>
+              <p data-reveal data-delay="2" className="mt-3 leading-relaxed text-ink-soft">{season.blurb}</p>
             </div>
             <ol className="space-y-4">
-              {season.events.map((ev) => (
-                <li key={ev.slug} id={ev.slug} className="scroll-mt-28 rounded-3xl border border-dawn-line bg-white p-7">
+              {season.events.map((ev, i) => (
+                <li data-reveal data-delay={String((i % 4) + 1)} key={ev.slug} id={ev.slug} className="scroll-mt-28 rounded-3xl border border-dawn-line bg-white p-7">
                   <p className="text-sm font-semibold text-amber">
                     {ev.dateLabel}
                     {ev.venue ? ` · ${ev.venue}` : ""}
@@ -68,7 +68,7 @@ export default function PastEvents() {
 
       <section className="bg-linear-to-b from-dawn to-gold text-night">
         <Container className="flex flex-col items-start justify-between gap-6 py-16 md:flex-row md:items-center">
-          <Heading className="text-4xl">The next flight is already boarding.</Heading>
+          <Heading data-reveal data-delay="1" className="text-4xl">The next flight is already boarding.</Heading>
           <ButtonLink href="/events" variant="night">
             See the next event
           </ButtonLink>

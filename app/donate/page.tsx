@@ -16,7 +16,7 @@ export default async function Donate({ searchParams }: { searchParams: Promise<{
       <section className="bg-linear-to-b from-gold-soft to-gold text-night">
         <Container className="grid items-start gap-12 py-20 md:grid-cols-2 md:py-24">
           <div>
-            <Eyebrow tone="ink">Donate</Eyebrow>
+            <Eyebrow data-reveal tone="ink">Donate</Eyebrow>
             <Heading as="h1" className="text-5xl md:text-6xl">
               Be the lift beneath their wings.
             </Heading>
@@ -25,7 +25,9 @@ export default async function Donate({ searchParams }: { searchParams: Promise<{
               events that help refugee students find their footing — and then rise.
             </p>
           </div>
+          <div data-reveal="scale" data-delay="2">
           <DonateForm canceled={canceled === "1"} />
+        </div>
         </Container>
       </section>
     </>

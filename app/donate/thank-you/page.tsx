@@ -12,7 +12,7 @@ export default function ThankYou() {
       <SkyBlend stops={["night", "predawn", "sky", "dawn", "gold-soft"]} />
       <section className="bg-linear-to-b from-gold-soft to-gold text-night">
         <Container className="py-24 md:py-32">
-          <Eyebrow tone="ink">Donation received</Eyebrow>
+          <Eyebrow data-reveal tone="ink">Donation received</Eyebrow>
           <Heading as="h1" className="max-w-3xl text-5xl md:text-7xl">
             Thank you for giving them lift.
           </Heading>

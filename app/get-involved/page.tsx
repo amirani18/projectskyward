@@ -43,8 +43,8 @@ export default function GetInvolved() {
       <section className="bg-linear-to-b from-dusk to-predawn">
         <Container className="py-20 md:py-24">
           <ul className="grid gap-5 md:grid-cols-3">
-            {ways.map((w) => (
-              <li key={w.title} className="flex flex-col gap-4 rounded-3xl border-t-[3px] border-gold bg-night p-8">
+            {ways.map((w, i) => (
+              <li data-reveal data-delay={String((i % 4) + 1)} key={w.title} className="flex flex-col gap-4 rounded-3xl border-t-[3px] border-gold bg-night p-8">
                 <h2 className="font-display text-3xl font-semibold">{w.title}</h2>
                 <p className="flex-1 leading-relaxed text-haze">{w.body}</p>
                 <div>{w.action}</div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SkyBlend, ButtonLink, Container, Eyebrow, Heading, PageHero } from "../components/ui";
+import FlightLine from "../components/motion/FlightLine";
 import { programs } from "../content/site";
 
 export const metadata: Metadata = {
@@ -21,9 +22,9 @@ export default function Programs() {
       <section className="bg-linear-to-b from-dusk to-predawn">
         <Container className="py-20 md:py-24">
           <ol className="relative space-y-6 md:pl-14">
-            <span aria-hidden="true" className="absolute top-2 bottom-2 left-[22px] hidden border-l-2 border-dashed border-gold/60 md:block" />
+            <FlightLine className="left-[22px] hidden md:block" />
             {programs.map((p, i) => (
-              <li key={p.stage} className="relative rounded-3xl bg-predawn-deep p-8 md:p-10">
+              <li key={p.stage} data-reveal className="relative rounded-3xl bg-predawn-deep p-8 md:p-10">
                 <span
                   aria-hidden="true"
                   className="absolute top-10 -left-[46px] hidden h-5 w-5 rounded-full border-4 border-predawn bg-gold md:block"
@@ -49,8 +50,8 @@ export default function Programs() {
       <section className="bg-linear-to-b from-dawn to-gold text-night">
         <Container className="flex flex-col items-start justify-between gap-6 py-16 md:flex-row md:items-center">
           <div>
-            <Eyebrow tone="ink">Tutors &amp; mentors wanted</Eyebrow>
-            <Heading className="text-4xl">Teach what you know. Help a student fly.</Heading>
+            <Eyebrow data-reveal tone="ink">Tutors &amp; mentors wanted</Eyebrow>
+            <Heading data-reveal data-delay="1" className="text-4xl">Teach what you know. Help a student fly.</Heading>
           </div>
           <ButtonLink href="/get-involved" variant="night">
             Volunteer with us

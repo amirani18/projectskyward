@@ -1,26 +1,36 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
+import Starfield from "./motion/Starfield";
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-6xl px-6 ${className}`}>{children}</div>;
 }
 
-export function Eyebrow({ children, tone = "gold" }: { children: ReactNode; tone?: "gold" | "ink" | "amber" }) {
+export function Eyebrow({
+  children,
+  tone = "gold",
+  ...rest
+}: { children: ReactNode; tone?: "gold" | "ink" | "amber" } & Omit<ComponentProps<"p">, "children" | "className">) {
   const color = { gold: "text-gold", ink: "text-predawn", amber: "text-amber" }[tone];
-  return <p className={`mb-3 font-mono text-[13px] uppercase tracking-[0.2em] ${color}`}>{children}</p>;
+  return (
+    <p {...rest} className={`mb-3 font-mono text-[13px] uppercase tracking-[0.2em] ${color}`}>
+      {children}
+    </p>
+  );
 }
 
 export function Heading({
   children,
   as: Tag = "h2",
   className = "",
+  ...rest
 }: {
   children: ReactNode;
   as?: "h1" | "h2" | "h3";
   className?: string;
-}) {
+} & Omit<ComponentProps<"h2">, "children" | "className">) {
   return (
-    <Tag className={`font-display font-semibold tracking-[-0.03em] text-balance leading-[1.02] ${className}`}>
+    <Tag {...rest} className={`font-display font-semibold tracking-[-0.03em] text-balance leading-[1.02] ${className}`}>
       {children}
     </Tag>
   );
@@ -36,7 +46,7 @@ const variants: Record<Variant, string> = {
 };
 
 const base =
-  "inline-flex min-h-12 items-center justify-center rounded-full px-7 py-3.5 font-semibold transition-colors";
+  "inline-flex min-h-12 items-center justify-center rounded-full px-7 py-3.5 font-semibold transition-[color,background-color,border-color,scale,translate] duration-200 motion-safe:active:scale-[0.97]";
 
 export function ButtonLink({
   variant = "gold",
@@ -80,13 +90,20 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="bg-linear-to-b from-night to-dusk">
-      <Container className="py-20 md:py-24">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <Heading as="h1" className="max-w-4xl text-5xl md:text-7xl">
+    <section className="relative overflow-hidden bg-linear-to-b from-night to-dusk">
+      <Starfield count={28} seed={23} />
+      <Container className="relative py-20 md:py-24">
+        <div className="intro-rise">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </div>
+        <Heading as="h1" data-delay="1" className="intro-rise max-w-4xl text-5xl md:text-7xl">
           {title}
         </Heading>
-        {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-haze md:text-xl">{children}</div>}
+        {children && (
+          <div data-delay="2" className="intro-rise mt-6 max-w-2xl text-lg leading-relaxed text-haze md:text-xl">
+            {children}
+          </div>
+        )}
       </Container>
     </section>
   );
