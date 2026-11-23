@@ -1,102 +1,70 @@
 # Project Skyward
-![Project Skyward Logo](public/logo.png)
 
-## 🌟 Our Mission
-Project Skyward empowers newly-arrived refugee youth in Indianapolis by providing culturally responsive education, bilingual programs, and community-driven support. We are dedicated to helping these young learners thrive academically and socially, fostering a sense of belonging, resilience, and success as they navigate their life in America.
+![Project Skyward owl](public/brand/owl.png)
 
-## 🪠 How the Website Was Built
+**Wisdom gives them wings.** Project Skyward is a nonprofit that helps refugee youth find their footing in American schools — and then rise — through bilingual tutoring, mentorship, free SAT/ACT prep and community events. We serve Indianapolis, Chicago and Bloomington, and are expanding to Madison, Wisconsin.
 
-### Framework
-The website is built using **Next.js**, a React-based framework that provides server-side rendering (SSR) and static site generation (SSG) for optimal performance and scalability.
+Live site: [projectskyward.org](https://projectskyward.org)
 
-### Features
-- **Fully Responsive Design**: The site is mobile-friendly and accessible on all devices.
-- **Dynamic Routing**: Built using the App Router for clean and scalable navigation.
-- **API Integration**: Securely integrates with Stripe for handling donations via payment intents.
-- **Environment Variables**: Uses environment variables for managing sensitive keys like Stripe's API keys.
-- **Tailwind CSS**: Styled with Tailwind CSS for fast and efficient custom design.
-- **Custom Domain**: Deployed on Vercel and accessible via [projectskyward.org](https://projectskyward.org).
+## The site's story: "Night to Dawn"
 
-### Pages
-1. **Home Page**:
-   - Overview of the mission, services, and impact.
-   - Call to action to get involved.
-2. **About Page**:
-   - Details about the organization, including refugee statistics and the importance of equitable education.
-3. **Services Page**:
-   - Explanation of services offered: bilingual education, academic support, community integration, and culturally responsive teaching.
-4. **Donate Page**:
-   - Integration with Stripe for secure donation processing.
-5. **Take Action Page**:
-   - Volunteer form, donation options, and social sharing tools.
+The owl in our logo stands for wisdom; the site tells the story of a flight. Each page reads top to bottom like a sky brightening — navy night, dusk, predawn blue, first light, a cream dawn and a gold sunrise at the donate call-to-action. Programs are a four-stage "flight path": **The Nest → First Flight → Gaining Altitude → Skyward**.
 
-### Deployment
-The website is hosted on [Vercel](https://vercel.com/), enabling fast, globally distributed builds with custom domain integration.
+## Pages
 
-## 💳 Donate
-Your donations enable us to provide essential resources, education, and support to refugee youth. Donations are securely processed via Stripe.
+| Route | What it is |
+|---|---|
+| `/` | Home: hero, next event, flight path, locations, past events, donate |
+| `/about` | Our Story and partners |
+| `/programs` | The four program stages in detail |
+| `/events` | The current featured event, speaker, registration, flyer download |
+| `/past-events` | Archive of every past event, grouped by season, with original flyers |
+| `/locations` | Cities we serve |
+| `/get-involved` | Volunteer, donate, partner |
+| `/donate` | Donation amount picker → Stripe Checkout |
+| `/donate/thank-you` | Post-donation page |
 
-Visit our [Donate Page](https://projectskyward.org/donate) to contribute to our mission.
+Old URLs (`/services`, `/location`, `/competitions`, `/take-action`, old flyer PDFs) redirect to their new homes — see `next.config.ts`.
 
-## 🖇️ Get Involved
-Want to make a difference? Visit our [Take Action Page](https://projectskyward.org/take-action) to:
-- Volunteer via an embedded Google Form.
-- Spread the word by sharing our mission on social media.
-- Donate to support our programs.
+## Updating content (no design work needed)
 
-## 🧑‍💻 Development Details
+All site copy that changes lives in `app/content/`:
 
-### Prerequisites
-- Node.js >= 16
-- npm >= 8
-- Stripe account for donation processing
+- **`events.ts`** — `currentEvent` is the featured event. When an event ends, move it into `pastSeasons` (the archive page picks it up automatically) and set a new `currentEvent`. Put flyers in `public/events/` (current) or `public/archive/<year>/` (past).
+- **`site.ts`** — contact details, navigation, programs, locations and partners.
 
-### Running Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/amirani18/projectskyward.git
-   cd projectskyward
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up environment variables:
-   - Create a `.env.local` file in the root directory.
-   - Add the following variables:
-     ```env
-     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-publishable-key
-     STRIPE_SECRET_KEY=your-secret-key
-     ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Visit `http://localhost:3000` to view the app.
+## Tech
 
-### Building and Deploying
-1. Build the production version:
-   ```bash
-   npm run build
-   ```
-2. Start the production server locally:
-   ```bash
-   npm run start
-   ```
-3. Deploy to Vercel by pushing to the `main` branch or manually triggering a deployment from the Vercel dashboard.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · TypeScript · Stripe Checkout. Hosted on Vercel.
 
-## 🔧 Key Technologies
-- **Next.js**: Framework for React-based web applications.
-- **Stripe**: Secure payment processing for donations.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Vercel**: Hosting platform for serverless deployment and scalability.
-- **Google Forms**: Embedded form for volunteer signups.
+## Running locally
 
-## 👥 Contributors
-- [Me :)](https://github.com/amirani18)
+Requires Node.js 20.9+.
 
-## 🔖 License
-This project is licensed under the [GPL-3.0 License](LICENSE).
+```bash
+npm install
+npm run dev
+```
 
-## 📧 Contact
-For inquiries, please email us at: [projectskyward2025@gmail.com](mailto:projectskyward2025@gmail.com).
+Then open http://localhost:3000. Other scripts: `npm run build`, `npm run lint`.
+
+### Environment variables
+
+Create `.env.local` (never commit it):
+
+```env
+# Required for donations. Use a test key (sk_test_…) locally.
+STRIPE_SECRET_KEY=sk_test_...
+# Optional: the public URL Stripe returns donors to. Defaults to the request's origin.
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+The site builds and runs without `STRIPE_SECRET_KEY`; only the Donate button needs it.
+
+## Donations
+
+`/donate` posts the chosen amount to `/api/checkout`, which validates it ($1–$10,000) and creates a Stripe Checkout session. Donors pay on Stripe's hosted page, so card details never touch this site. To email receipts, turn on **Settings → Customer emails → Successful payments** in the Stripe Dashboard.
+
+## License
+
+GPL-3.0 — see `LICENSE`.

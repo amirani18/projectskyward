@@ -1,47 +1,60 @@
 @import 'tailwindcss';
 
 /*
-  Brand palette. Declaring these in @theme makes Tailwind generate real
-  utilities (bg-dark-blue, text-blue, from-light-blue, hover:bg-blue, ...),
-  replacing the hand-written classes we had under Tailwind 3.
+  "Night to Dawn" palette. The page is read top to bottom as a sky
+  brightening: night -> dusk -> predawn -> first light -> dawn -> sunrise.
 */
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-dark-blue: #1a2a5b;
-  --color-light-blue: #dce8f6;
-  --color-lighter-blue: #eaf3fc;
-  --color-blue: #4a90e2;
+  --color-night: #0b1636;
+  --color-dusk: #14214a;
+  --color-predawn: #253a78;
+  --color-predawn-deep: #1b2d63;
+  --color-line: #2a3a70;
+  --color-sky: #a9c1e8;
+  --color-mist: #eef3fb;
+  --color-dawn: #f6ecd6;
+  --color-dawn-line: #e6d6b2;
+  --color-gold: #f2c14e;
+  --color-gold-bright: #ffd97a;
+  --color-amber: #8a5a00;
+  --color-paper: #f4f1ea;
+  --color-haze: #c9d3ee;
+  --color-haze-dim: #8fa0cf;
+  --color-ink-soft: #33416b;
+  --color-gold-soft: #f8dc95;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
-/*
-  Tailwind 4 changed the default border color to currentColor.
-  Keep the Tailwind 3 look (gray-200) until the redesign replaces it.
-*/
 @layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-line);
   }
-}
 
-:root {
-  --background: #f0f4fc; /* Light Blue */
-  --foreground: #1a2a5b; /* Dark Blue */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a2a5b;
-    --foreground: #eaf3fc;
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--color-night);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }

@@ -1,209 +1,164 @@
-"use client";
 import Image from "next/image";
-import { useState } from "react";
-import NavLinks from "./components/nav-links";
+import Link from "next/link";
+import FeaturedEvent from "./components/FeaturedEvent";
+import { SkyBlend, ButtonLink, Container, Eyebrow, Heading } from "./components/ui";
+import { pastSeasons } from "./content/events";
+import { locations, programs } from "./content/site";
 
 export default function Home() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const handleToggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
-  
+  const recentPast = pastSeasons.flatMap((s) => s.events).slice(0, 3);
+
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-dark-blue text-light-blue">
-      {/* Header Section */}
-      <header className="bg-dark-blue text-white p-6">
-        <nav className="flex justify-between items-center">
-            {/* Logo */}
-            <div onClick={() => window.location.href = "/"} className="cursor-pointer">
-            <Image
-              src="/logo.png"
-              alt="Project Skyward Logo"
-              width={150}
-              height={150}
-              className="mr-4"
-            />
+    <>
+      {/* HERO — night */}
+      <section className="relative overflow-hidden bg-linear-to-b from-night to-dusk">
+        <div aria-hidden="true" className="pointer-events-none absolute top-1/2 -right-40 h-[680px] w-[680px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,193,78,0.16),transparent_65%)]" />
+        <Container className="relative flex flex-col items-center gap-12 py-20 md:flex-row md:py-24">
+          <div className="min-w-0 flex-1">
+            <Eyebrow>A nonprofit for refugee youth</Eyebrow>
+            <Heading as="h1" className="text-5xl md:text-7xl">
+              Wisdom gives them wings.
+            </Heading>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-haze md:text-xl">
+              Every refugee student arrives carrying a whole life. Project Skyward meets them with tutors, mentors and
+              teachers who help them find their footing in American schools — and then rise.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <ButtonLink href="/events">See the next event</ButtonLink>
+              <ButtonLink href="/about" variant="outline">
+                Read our story
+              </ButtonLink>
             </div>
-
-
-          {/* NavLinks */}
-          <NavLinks isNavOpen={isNavOpen} />
-
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-6">
-            <button
-              className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
-              onClick={() => window.location.href = "/donate"}
-            >
-              Donate
-            </button>
-            <button
-              className="text-3xl md:hidden text-white"
-              onClick={handleToggleNav}
-              aria-label="Toggle navigation menu"
-            >
-              {isNavOpen ? "✖" : "☰"}
-            </button>
           </div>
-        </nav>
-      </header>
-
-
-      {/* Mission Section */}
-      <section className="p-8 bg-light-blue text-center">
-        <Image
-          src="/logo2.png"
-          alt="Project Skyward Logo"
-          width={100}
-          height={100}
-          className="block mx-auto"
-        />
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Mission</h2>
-        <p className="text-lg text-dark-blue">
-          &quot;Project Skyward is a community-powered pre-college program dedicated to equipping all students with the skills, confidence, and academic foundation to reach their highest potential. Through accessible enrichment classes, academic competitions, and mentorship opportunities, we help students soar.&quot;
-        </p>
-      </section>
-
-      {/* Academic Competitions Section */}
-      <section className="p-8 bg-white text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">NEW!! Academic Competitions</h2>
-        {/* Registration Button */}
-        <div>
-            <button
-              className="bg-blue text-white px-8 py-4 text-lg font-bold rounded-lg hover:bg-dark-blue hover:scale-105 transition-transform shadow-lg"
-              onClick={() => window.open("https://forms.gle/c5fatrUMhTE98TjJ9", "_blank")}
-            >
-              Register!
-            </button>
-          </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="text-xl font-bold text-blue">📜 Essay Writing</h3>
-            <p className="text-dark-blue">This competition is themed on writing a strong essay on the Impact of Extreme weather events around the
-            world. First, second and third place winner will receive a cash prize. Visit the <b>Competitions</b> tab for more information!</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">🎨 Art</h3>
-            <p className="text-dark-blue">This competition is themed on ancient Egyptian art, specifically the 18th to 20th Dynasties. Students are
-required to create a thoughtful art piece in one hour in person. First, Second and Third Place winners will
-receive a cash prize. Visit the <b>Competitions</b> tab for more information!</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">🧮 Mathematics</h3>
-            <p className="text-dark-blue">This tournament-style competition is based on 10 Math games. Elementary school students must be in grades
-            4th and 5th to participate in the competition. First, Second and Third place winners will receive a cash prize. Visit the <b>Competitions</b> tab for more information!</p>
-          </div>
-        </div>
-      </section>
-
-
-      {/* How We Help Section */}
-      <section className="p-8 bg-light-blue text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">How We Help</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="text-xl font-bold text-blue">Bilingual Education</h3>
-            <p className="text-dark-blue">ESL instruction, math tutoring, and more to support academic success.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">Personalized Support</h3>
-            <p className="text-dark-blue">One-on-one tutoring and mentoring to bridge academic gaps.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">Community Programs</h3>
-            <p className="text-dark-blue">Social integration workshops and family support initiatives.</p>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Impact Section */}
-      {/* <section className="p-8 bg-light-blue text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Our Impact</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="text-xl font-bold text-blue">500K+</h3>
-            <p className="text-dark-blue">Resettled refugees in the U.S. in the last 10 years.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">60K+</h3>
-            <p className="text-dark-blue">Admitted refugees and asylum seekers in 2023.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-blue">45%</h3>
-            <p className="text-dark-blue">Refugee children under 18 admitted in 2023.</p>
-          </div>
-        </div>
-      </section> */}
-
-
-      {/* Refugee Testimonials Section */}
-      {/* <section className="p-8 bg-white text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Refugee Testimonials</h2>
-        <blockquote className="italic border-l-4 border-blue pl-4 text-dark-blue">
-          &quot;Project Skyward gave me hope and the tools to succeed in school and life.
-          I feel like I belong now.&quot; – A Refugee Youth &quot;
-        </blockquote>
-      </section> */}
-
-
-      {/* Take Action Section */}
-      <section className="p-8 bg-white text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Take Action</h2>
-        <p className="text-lg mb-4 text-dark-blue">Join us in empowering youth and making a difference.</p>
-        <div className="flex flex-col md:flex-row justify-center gap-4">
-          <button
-            className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
-            onClick={() => window.location.href = "/donate"}
-          >
-            Donate
-          </button>
-          <button
-            className="border border-blue text-blue px-6 py-3 rounded-lg hover:bg-blue hover:text-white"
-            onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfits6lU7kLuajJ_nXvLtHXj4ZnFtnCxjdQbMPHh3mfuqCQdg/viewform?usp=sharing", "_blank")}
-          >
-            Volunteer
-          </button>
-        </div>
-      </section>
-
-
-      {/* Donate Section
-      <section id="donate" className="p-8 bg-white text-center">
-        <h2 className="text-3xl font-semibold mb-4 text-dark-blue">Donate</h2>
-        <p className="text-lg mb-4 text-dark-blue">
-          Your generous donation helps us provide critical support to refugee youth.
-        </p>
-        <a
-          href="/donate"
-          className="bg-blue text-white px-6 py-3 rounded-lg hover:bg-dark-blue hover:text-white"
-        >
-          Donate Now
-        </a>
-      </section> */}
-
-      {/* Footer Section */}
-      <footer className="bg-dark-blue text-white p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-          {/* Logo */}
-          <div className="flex justify-center md:justify-start">
+          <div className="relative flex w-full max-w-md flex-1 justify-center">
+            <svg aria-hidden="true" viewBox="0 0 460 420" className="absolute inset-0 h-full w-full">
+              <path
+                d="M20 400 C 120 360, 160 250, 230 210 S 380 90, 440 20"
+                fill="none"
+                stroke="var(--color-gold)"
+                strokeWidth="2"
+                strokeDasharray="2 10"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+            </svg>
             <Image
-              src="/logo.png"
-              alt="Project Skyward Logo"
-              width={150}
-              height={150}
+              src="/brand/owl.png"
+              alt="The Project Skyward owl in flight, circled by a golden trail"
+              width={420}
+              height={420}
+              priority
+              className="relative h-auto w-full max-w-[420px]"
             />
           </div>
-          {/* Contact Information */}
-          <div className="text-center md:text-right text-sm">
-            <p><span role="img" aria-label="phone">📞</span> Contact Us: +406-396-5719</p>
-            {/* <p><span role="img" aria-label="location">📍</span> Bloomington, IN  |  Chicago, IL  |  Indianapolis, IN</p> */}
-            <p><span role="img" aria-label="email"></span> Email: www.projectskyward2025@gmail.com</p>
-            <p><span role="img" aria-label="website">🌐</span> Website: www.projectskyward.org</p>
+        </Container>
+      </section>
+
+      {/* NEXT EVENT — late night */}
+      <section className="bg-linear-to-b from-dusk to-predawn">
+        <Container className="py-20 md:py-24">
+          <Eyebrow>Taking flight · Next event</Eyebrow>
+          <FeaturedEvent />
+        </Container>
+      </section>
+
+      {/* FLIGHT PATH — predawn */}
+      <section className="bg-predawn">
+        <Container className="py-20 md:py-24">
+          <Eyebrow>The flight path</Eyebrow>
+          <Heading className="max-w-3xl text-4xl md:text-5xl">From the nest to the open sky, one stage at a time.</Heading>
+          <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {programs.map((p, i) => (
+              <li key={p.stage} className="rounded-3xl border-t-[3px] border-gold bg-predawn-deep p-7">
+                <p className="font-display text-4xl text-gold">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="mt-3 text-[22px] font-semibold">{p.stage}</h3>
+                <p className="mt-2 leading-relaxed text-haze">{p.summary}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10">
+            <ButtonLink href="/programs" variant="outline">
+              Explore our programs
+            </ButtonLink>
           </div>
-        </div>
-      </footer>
-    </div>
+        </Container>
+      </section>
+
+      {/* WHERE WE FLY — first light */}
+      <SkyBlend stops={["predawn", "sky"]} />
+      <section className="bg-linear-to-b from-sky to-dawn text-night">
+        <Container className="py-20 md:py-24">
+          <Eyebrow tone="ink">Where we fly</Eyebrow>
+          <Heading className="text-4xl md:text-5xl">Four cities, and a new one on the horizon.</Heading>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {locations.map((l) => (
+              <li
+                key={l.city}
+                className={`flex flex-col gap-2 rounded-3xl p-7 ${l.isNew ? "bg-night text-paper" : "bg-mist"}`}
+              >
+                {l.isNew && (
+                  <span className="self-start rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wider text-night">
+                    New
+                  </span>
+                )}
+                <h3 className="font-display text-3xl font-semibold">
+                  {l.city}, {l.state}
+                </h3>
+                <p className={l.isNew ? "text-haze" : "text-ink-soft"}>{l.note}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* PAST FLIGHTS — dawn */}
+      <section className="bg-linear-to-b from-dawn to-gold-soft text-night">
+        <Container className="flex flex-col gap-12 py-20 md:flex-row md:py-24">
+          <div className="min-w-0 flex-1">
+            <Eyebrow tone="amber">Past flights</Eyebrow>
+            <Heading className="text-4xl md:text-5xl">Where we have already been.</Heading>
+            <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
+              Every event we have hosted, kept as a record of how far our students have come.
+            </p>
+            <ButtonLink href="/past-events" variant="night" className="mt-8">
+              Browse the archive
+            </ButtonLink>
+          </div>
+          <ul className="flex min-w-0 flex-[1.4] flex-col gap-3">
+            {recentPast.map((ev) => (
+              <li key={ev.slug}>
+                <Link
+                  href={`/past-events#${ev.slug}`}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 rounded-3xl border border-dawn-line bg-white px-7 py-6 transition-colors hover:border-amber"
+                >
+                  <span>
+                    <span className="block text-sm font-semibold text-amber">
+                      {ev.dateLabel}
+                      {ev.venue ? ` · ${ev.venue}` : ""}
+                    </span>
+                    <span className="mt-1 block text-xl font-semibold">{ev.title}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* DONATE — sunrise */}
+      <section className="bg-linear-to-b from-gold-soft to-gold text-night">
+        <Container className="flex flex-col items-start justify-between gap-8 py-20 md:flex-row md:items-center md:py-24">
+          <div className="max-w-2xl">
+            <Heading className="text-5xl md:text-6xl">Be the lift beneath their wings.</Heading>
+            <p className="mt-4 text-lg leading-relaxed">
+              Your gift funds tutoring, test prep and events for the students who need them most.
+            </p>
+          </div>
+          <ButtonLink href="/donate" variant="night" className="px-9 text-lg">
+            Donate
+          </ButtonLink>
+        </Container>
+      </section>
+    </>
   );
 }
