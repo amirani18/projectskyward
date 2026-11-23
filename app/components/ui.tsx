@@ -74,10 +74,42 @@ type SkyColor = "night" | "dusk" | "predawn" | "sky" | "mist" | "dawn" | "gold-s
   A purely decorative gradient strip that carries the sky from one section's
   color into the next — used where the page crosses from dark to light, so
   no text ever sits on the mid-tones.
+
+  To keep the dark-to-light crossing easy on the eyes:
+  - each segment is eased (smoothstep), so the strip starts and ends with no
+    visible "edge" against the flat sections around it
+  - colors are mixed in OKLab, which stays clean through the midtones
+    instead of going grey
+  - strips are tall, scaling with how many colors they pass through
 */
-export function SkyBlend({ stops, className = "h-28 md:h-44" }: { stops: SkyColor[]; className?: string }) {
-  const gradient = `linear-gradient(to bottom, ${stops.map((s) => `var(--color-${s})`).join(", ")})`;
-  return <div aria-hidden="true" className={className} style={{ backgroundImage: gradient }} />;
+const EASE_STEPS = 8;
+const smoothstep = (t: number) => t * t * (3 - 2 * t);
+
+function easedGradient(stops: SkyColor[]) {
+  const parts: string[] = [];
+  const segments = stops.length - 1;
+  stops.slice(0, -1).forEach((from, i) => {
+    const to = stops[i + 1];
+    for (let k = 0; k < EASE_STEPS; k++) {
+      const t = k / EASE_STEPS;
+      const mix = (smoothstep(t) * 100).toFixed(1);
+      const pos = (((i + t) / segments) * 100).toFixed(2);
+      parts.push(`color-mix(in oklab, var(--color-${to}) ${mix}%, var(--color-${from})) ${pos}%`);
+    }
+  });
+  parts.push(`var(--color-${stops[stops.length - 1]}) 100%`);
+  return `linear-gradient(to bottom, ${parts.join(", ")})`;
+}
+
+const BLEND_HEIGHT: Record<number, string> = {
+  1: "h-56 md:h-80",
+  2: "h-72 md:h-[26rem]",
+  3: "h-80 md:h-[30rem]",
+};
+
+export function SkyBlend({ stops, className }: { stops: SkyColor[]; className?: string }) {
+  const height = className ?? BLEND_HEIGHT[Math.min(stops.length - 1, 3)];
+  return <div aria-hidden="true" className={height} style={{ backgroundImage: easedGradient(stops) }} />;
 }
 
 export function PageHero({
