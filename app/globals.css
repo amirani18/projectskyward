@@ -1,15 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+  Brand palette. Declaring these in @theme makes Tailwind generate real
+  utilities (bg-dark-blue, text-blue, from-light-blue, hover:bg-blue, ...),
+  replacing the hand-written classes we had under Tailwind 3.
+*/
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-dark-blue: #1a2a5b;
+  --color-light-blue: #dce8f6;
+  --color-lighter-blue: #eaf3fc;
+  --color-blue: #4a90e2;
+}
+
+/*
+  Tailwind 4 changed the default border color to currentColor.
+  Keep the Tailwind 3 look (gray-200) until the redesign replaces it.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 :root {
   --background: #f0f4fc; /* Light Blue */
   --foreground: #1a2a5b; /* Dark Blue */
-  --dark-blue: #1a2a5b;
-  --light-blue: #dce8f6;
-  --lighter-blue: #eaf3fc;
-  --white: #ffffff;
-  --blue: #4a90e2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,44 +44,4 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.bg-dark-blue {
-  background-color: var(--dark-blue);
-}
-
-.bg-light-blue {
-  background-color: var(--light-blue);
-}
-
-.bg-lighter-blue {
-  background-color: var(--lighter-blue);
-}
-
-.text-dark-blue {
-  color: var(--dark-blue);
-}
-
-.text-light-blue {
-  color: var(--light-blue);
-}
-
-.text-lighter-blue {
-  color: var(--lighter-blue);
-}
-
-.text-white {
-  color: var(--white);
-}
-
-.text-blue {
-  color: var(--blue);
-}
-
-.bg-blue {
-  background-color: var(--blue);
-}
-
-.border-blue {
-  border-color: var(--blue);
 }

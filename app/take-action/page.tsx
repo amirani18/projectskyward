@@ -51,7 +51,7 @@ export default function TakeAction(): JSX.Element {
         </nav>
       </header>
 
-      <main className="flex-grow max-w-6xl mx-auto p-8 space-y-8">
+      <main className="grow max-w-6xl mx-auto p-8 space-y-8">
       <h1 className="text-4xl font-bold text-center">Take Action</h1>
         <section className="text-center mb-8">
           <h2 className="text-3xl font-semibold mb-4">Join Us in Making a Difference</h2>
@@ -104,7 +104,7 @@ export default function TakeAction(): JSX.Element {
         {/* Animation Section */}
         <section className="mt-12 text-center">
           <p className="text-lg mb-4">Together, we can make a difference!</p>
-          <div className="w-full h-64 bg-gradient-to-b from-light-blue to-white flex items-center justify-center">
+          <div className="w-full h-64 bg-linear-to-b from-light-blue to-white flex items-center justify-center">
           <Image
             src="/students-studying.png"
             alt="Students Studying"

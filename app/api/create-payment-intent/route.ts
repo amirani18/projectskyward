@@ -1,66 +1,59 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-// import nodemailer from "nodemailer";
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error("STRIPE_SECRET_KEY is not defined");
+// Amounts are in cents. Stripe's own minimum for USD is $0.50; we use $1.
+const MIN_AMOUNT = 100;
+const MAX_AMOUNT = 1_000_000; // $10,000 cap to block garbage or abusive input
+
+let stripe: Stripe | null = null;
+
+// Created on first request instead of at import time, so `next build`
+// works on machines that don't have the secret key set.
+function getStripe(): Stripe {
+  if (!stripe) {
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key) {
+      throw new Error("STRIPE_SECRET_KEY is not defined");
+    }
+    stripe = new Stripe(key, { apiVersion: "2026-11-18.endive" });
+  }
+  return stripe;
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2024-12-18.acacia",
-});
-
-// if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-//   throw new Error("EMAIL_USER and EMAIL_PASS are required for sending emails");
-// }
-
-// const transporter = nodemailer.createTransport({
-//   service: "gmail", // Replace with your email provider if not Gmail
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// });
-
-import { NextRequest } from "next/server";
-
 export async function POST(req: NextRequest) {
-  // const { amount, email } = await req.json(); // Expect amount and email from frontend
-  const { amount } = await req.json(); // Expect amount and email from frontend
-  // if (!email) {
-  //   return NextResponse.json({ error: "Email is required" }, { status: 400 });
-  // }
+  let amount: unknown;
+  try {
+    ({ amount } = await req.json());
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  if (
+    typeof amount !== "number" ||
+    !Number.isInteger(amount) ||
+    amount < MIN_AMOUNT ||
+    amount > MAX_AMOUNT
+  ) {
+    return NextResponse.json(
+      { error: "Amount must be a whole number of cents between $1 and $10,000" },
+      { status: 400 }
+    );
+  }
 
   try {
-    // Create a PaymentIntent
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount, // Amount in cents
+    const paymentIntent = await getStripe().paymentIntents.create({
+      amount,
       currency: "usd",
-      payment_method_types: ["card"],
+      allowed_payment_method_types: ["card"],
     });
-
-    // // Send email confirmation
-    // const emailMessage = {
-    //   from: `"Project Skyward" <${process.env.EMAIL_USER}>`,
-    //   to: email,
-    //   subject: "Donation Confirmation - Project Skyward",
-    //   text: `Thank you for your generous donation of $${(amount / 100).toFixed(
-    //     2
-    //   )} to Project Skyward! Your contribution helps us empower refugee youth.`,
-    //   html: `<p>Dear Donor,</p>
-    //     <p>Thank you for your generous donation of <strong>$${(amount / 100).toFixed(
-    //       2
-    //     )}</strong> to Project Skyward!</p>
-    //     <p>Your contribution helps us empower refugee youth through education and support.</p>
-    //     <p>Warm regards,<br>Project Skyward Team</p>`,
-    // };
-
-    // await transporter.sendMail(emailMessage);
 
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json({ error: errorMessage }, { status: 400 });
+    // Log details server-side; don't leak Stripe internals to the browser.
+    console.error("create-payment-intent failed:", error);
+    return NextResponse.json(
+      { error: "Payment could not be started. Please try again." },
+      { status: 500 }
+    );
   }
 }

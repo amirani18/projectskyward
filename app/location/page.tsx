@@ -50,7 +50,7 @@ export default function LocationPage() {
           </nav>
         </header>
   
-        <main className="flex-grow max-w-6xl mx-auto p-8 space-y-8">
+        <main className="grow max-w-6xl mx-auto p-8 space-y-8">
           
         <h1 className="text-4xl font-bold text-center">Location Updates</h1>
           <section className="text-center mb-8">

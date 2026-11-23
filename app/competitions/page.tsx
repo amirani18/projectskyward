@@ -55,7 +55,7 @@ export default function Competitions() {
         </nav>
       </header>
 
-      <main className="flex-grow max-w-6xl mx-auto p-8 space-y-8">
+      <main className="grow max-w-6xl mx-auto p-8 space-y-8">
         
       <h1 className="text-4xl font-bold text-center">2025-2026 Competition</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

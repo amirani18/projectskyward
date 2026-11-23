@@ -58,7 +58,7 @@ export default function Donate() {
         </nav>
       </header>
 
-      <main className="flex-grow max-w-4xl mx-auto p-8 space-y-8">
+      <main className="grow max-w-4xl mx-auto p-8 space-y-8">
       <h1 className="text-4xl font-bold text-center">Donate</h1>
         <section className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Support Our Mission</h2>

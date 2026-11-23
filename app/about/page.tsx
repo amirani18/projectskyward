@@ -79,7 +79,7 @@ export default function About() {
         </p>
       </section>
 
-      <main className="flex-grow max-w-4xl mx-auto p-8 space-y-10">
+      <main className="grow max-w-4xl mx-auto p-8 space-y-10">
         {/* Stats Section
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
           <div className="bg-white p-6 rounded-lg shadow-md">
