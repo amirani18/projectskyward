@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { SkyBlend, ButtonLink, Container, Eyebrow, Heading, PageHero } from "../components/ui";
-import { partners } from "../content/site";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -66,27 +64,7 @@ export default function About() {
         </Container>
       </section>
 
-      <SkyBlend stops={["predawn", "sky"]} />
-      <section className="bg-linear-to-b from-sky via-mist to-dawn text-night">
-        <Container className="py-20 md:py-24">
-          <Eyebrow data-reveal tone="ink">Partners &amp; sponsors</Eyebrow>
-          <Heading data-reveal data-delay="1" className="text-4xl">The people who give us lift.</Heading>
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {partners.map((p, i) => (
-              <li data-reveal data-delay={String((i % 4) + 1)} key={p.name} className="overflow-hidden rounded-3xl bg-white">
-                <div className="flex h-48 items-center justify-center bg-white p-6">
-                  <Image src={p.image} alt={p.name} width={600} height={400} className="max-h-full w-auto object-contain" />
-                </div>
-                <div className="border-t border-mist p-6">
-                  <h3 className="text-lg font-semibold">{p.name}</h3>
-                  <p className="mt-1 text-ink-soft">{p.caption}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
+      <SkyBlend stops={["predawn", "sky", "dawn"]} />
       <section className="bg-linear-to-b from-dawn to-gold text-night">
         <Container className="flex flex-col items-start justify-between gap-6 py-16 md:flex-row md:items-center">
           <Heading data-reveal data-delay="1" className="text-4xl">Want to help a student rise?</Heading>

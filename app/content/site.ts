@@ -2,7 +2,7 @@
 
 export const site = {
   name: "Project Skyward",
-  url: "https://projectskyward.org",
+  url: "https://www.projectskyward.org",
   tagline: "Wisdom gives them wings.",
   description:
     "Project Skyward is a nonprofit that helps refugee youth find their footing in American schools — and then rise — through tutoring, mentorship, test prep and community events.",
@@ -72,22 +72,4 @@ export const locations: Location[] = [
   { city: "Indianapolis", state: "IN", note: "And its surrounding suburbs." },
   { city: "Chicago", state: "IL", note: "And its surrounding suburbs." },
   { city: "Bloomington", state: "IN", note: "South-central Indiana." },
-];
-
-export type Partner = { name: string; image: string; caption: string };
-
-export const partners: Partner[] = [
-  {
-    name: "Missoula Interfaith Collaborative",
-    image: "/partners/MissoulaInterfaith.jpg",
-    caption: "A key partner providing support and resources for our mission.",
-  },
-  { name: "Sleep Inn", image: "/partners/SleepInn.png", caption: "Missoula, Montana." },
-  { name: "Red Lion Inn", image: "/partners/RedLionInn.png", caption: "Missoula, Montana." },
-  { name: "Comfort Inn", image: "/partners/ComfortInn.jpg", caption: "Missoula, Montana." },
-  {
-    name: "Ghareeb Nawaz",
-    image: "/partners/GhareebNawaz.png",
-    caption: "University of Illinois at Chicago — a community partner.",
-  },
 ];

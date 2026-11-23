@@ -15,7 +15,7 @@ The owl in our logo stands for wisdom; the site tells the story of a flight. Eac
 | Route | What it is |
 |---|---|
 | `/` | Home: hero, next event, flight path, locations, past events, donate |
-| `/about` | Our Story and partners |
+| `/about` | Our Story |
 | `/programs` | The four program stages in detail |
 | `/events` | The current featured event, speaker, registration, flyer download |
 | `/past-events` | Archive of every past event, grouped by season, with original flyers |
@@ -31,7 +31,7 @@ Old URLs (`/services`, `/location`, `/competitions`, `/take-action`, old flyer P
 All site copy that changes lives in `app/content/`:
 
 - **`events.ts`** — `currentEvent` is the featured event. When an event ends, move it into `pastSeasons` (the archive page picks it up automatically) and set a new `currentEvent`. Put flyers in `public/events/` (current) or `public/archive/<year>/` (past).
-- **`site.ts`** — contact details, navigation, programs, locations and partners.
+- **`site.ts`** — contact details, navigation, programs and locations.
 
 ## Tech
 
